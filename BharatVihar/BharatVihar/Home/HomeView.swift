@@ -16,7 +16,7 @@ struct HomeView: View {
             HBackground()
             VStack {
                 Spacer()
-                Button("Open Features") {
+                Button("Lets Explore") {
                     isPresentingFeature.toggle()
                 }
                 .padding()

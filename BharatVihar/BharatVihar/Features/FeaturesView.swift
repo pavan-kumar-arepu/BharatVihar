@@ -14,10 +14,11 @@ struct FeatureView: View {
     var body: some View {
         NavigationView {
             VStack {
-                List {
-                    NavigationLink("Navigate to Other View 1", destination: OtherView1())
-                    NavigationLink("Navigate to Other View 2", destination: OtherView2())
-                }
+                FeatureParagraphView()
+//                List {
+//                    NavigationLink("Navigate to Other View 1", destination: OtherView1())
+//                    NavigationLink("Navigate to Other View 2", destination: OtherView2())
+//                }
             }
             .navigationBarTitle("Features", displayMode: .inline)
             .navigationBarItems(trailing: Button("Dismiss") {
