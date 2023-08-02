@@ -18,6 +18,7 @@
 		0B8021ED2A7AC857006F0CEF /* Feature1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8021EC2A7AC857006F0CEF /* Feature1.swift */; };
 		0B8021EF2A7AC862006F0CEF /* Feature2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8021EE2A7AC862006F0CEF /* Feature2.swift */; };
 		0B8021F12A7AF2DA006F0CEF /* FeaturePragraph.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8021F02A7AF2DA006F0CEF /* FeaturePragraph.swift */; };
+		0B8021F32A7B0A1F006F0CEF /* HighlightedTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8021F22A7B0A1F006F0CEF /* HighlightedTextView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +34,7 @@
 		0B8021EC2A7AC857006F0CEF /* Feature1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Feature1.swift; sourceTree = "<group>"; };
 		0B8021EE2A7AC862006F0CEF /* Feature2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Feature2.swift; sourceTree = "<group>"; };
 		0B8021F02A7AF2DA006F0CEF /* FeaturePragraph.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeaturePragraph.swift; sourceTree = "<group>"; };
+		0B8021F22A7B0A1F006F0CEF /* HighlightedTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HighlightedTextView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +98,7 @@
 		0B8021EA2A7AC4CA006F0CEF /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				0B8021F22A7B0A1F006F0CEF /* HighlightedTextView.swift */,
 				0B8021E82A7AC48B006F0CEF /* FeaturesView.swift */,
 				0B8021F02A7AF2DA006F0CEF /* FeaturePragraph.swift */,
 				0B8021EC2A7AC857006F0CEF /* Feature1.swift */,
@@ -177,6 +180,7 @@
 				0B8021E72A7AC45A006F0CEF /* SceneDelegate.swift in Sources */,
 				0B8021F12A7AF2DA006F0CEF /* FeaturePragraph.swift in Sources */,
 				0B8021E52A7AC0C7006F0CEF /* HomeBackground.swift in Sources */,
+				0B8021F32A7B0A1F006F0CEF /* HighlightedTextView.swift in Sources */,
 				0B8021E22A7ABB9F006F0CEF /* HomeView.swift in Sources */,
 				0B8021ED2A7AC857006F0CEF /* Feature1.swift in Sources */,
 				0B8021D42A7ABAC2006F0CEF /* ContentView.swift in Sources */,

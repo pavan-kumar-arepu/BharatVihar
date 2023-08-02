@@ -10,21 +10,35 @@ import SwiftUI
 
 struct FeatureView: View {
     @Binding var isPresented: Bool
-
+    
     var body: some View {
         NavigationView {
             VStack {
                 FeatureParagraphView()
-//                List {
-//                    NavigationLink("Navigate to Other View 1", destination: OtherView1())
-//                    NavigationLink("Navigate to Other View 2", destination: OtherView2())
-//                }
             }
             .navigationBarTitle("Features", displayMode: .inline)
             .navigationBarItems(trailing: Button("Dismiss") {
-                isPresented.toggle() // Try toggling the binding
+                isPresented.toggle()
             })
         }
+    }
+}
+
+struct AttractionView: View { // Create your AttractionView
+    var body: some View {
+        Text("AttractionView")
+    }
+}
+
+struct PhotogalleryView: View { // Create your PhotogalleryView
+    var body: some View {
+        Text("Photogallery")
+    }
+}
+
+struct TraditionView: View { // Create your PhotogalleryView
+    var body: some View {
+        Text("tradition")
     }
 }
 
