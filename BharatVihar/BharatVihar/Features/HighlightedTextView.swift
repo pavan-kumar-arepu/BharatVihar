@@ -18,16 +18,22 @@ struct HighlightedTextView: UIViewRepresentable {
         textView.isEditable = false
         textView.isSelectable = true
         textView.isUserInteractionEnabled = true
-        
-        let attributedString = NSMutableAttributedString(string: paragraph)
-        let attributes: [NSAttributedString.Key: Any] = [.foregroundColor: UIColor.green]
-        
-        for word in highlightedWords {
-            let range = (paragraph as NSString).range(of: word)
-            attributedString.addAttributes(attributes, range: range)
+        textView.backgroundColor = UIColor.clear
+
+        // Set the 'Gill Sans' font family
+        if let gillSansFont = UIFont(name: "GillSans", size: 17) {
+            let defaultAttributes: [NSAttributedString.Key: Any] = [.font: gillSansFont]
+            let highlightedAttributes: [NSAttributedString.Key: Any] = [.font: gillSansFont, .foregroundColor: UIColor.blue]
+            
+            let attributedString = NSMutableAttributedString(string: paragraph, attributes: defaultAttributes)
+            
+            for word in highlightedWords {
+                let range = (paragraph as NSString).range(of: word)
+                attributedString.addAttributes(highlightedAttributes, range: range)
+            }
+            
+            textView.attributedText = attributedString
         }
-        
-        textView.attributedText = attributedString
         
         // Add tap gesture recognizer
         let tapGestureRecognizer = UITapGestureRecognizer(target: context.coordinator, action: #selector(Coordinator.handleTap(_:)))
@@ -35,6 +41,7 @@ struct HighlightedTextView: UIViewRepresentable {
         
         return textView
     }
+
     
     func updateUIView(_ uiView: UITextView, context: Context) {
         // Update UI if needed

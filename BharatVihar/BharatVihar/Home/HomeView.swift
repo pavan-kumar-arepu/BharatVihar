@@ -12,7 +12,7 @@ struct HomeView: View {
     @State private var isPresentingFeature = false
 
     var body: some View {
-        ZStack{
+        ZStack {
             HBackground()
             VStack {
                 Spacer()

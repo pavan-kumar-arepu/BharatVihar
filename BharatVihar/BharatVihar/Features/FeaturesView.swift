@@ -13,17 +13,24 @@ struct FeatureView: View {
     
     var body: some View {
         NavigationView {
-            VStack {
-                FeatureParagraphView()
+            ZStack {
+                HBackground()
+                VStack {
+                    Spacer()
+                    Text("Glimpse of India")
+                    Spacer() // Add a spacer to push the content to the top
+                    FeatureParagraphView()
+                        .padding([.leading, .trailing])
+                    Spacer() 
+                }
             }
-            .navigationBarTitle("Features", displayMode: .inline)
+            .navigationBarTitle("*", displayMode: .inline)
             .navigationBarItems(trailing: Button("Dismiss") {
                 isPresented.toggle()
             })
         }
     }
 }
-
 struct AttractionView: View { // Create your AttractionView
     var body: some View {
         Text("AttractionView")
