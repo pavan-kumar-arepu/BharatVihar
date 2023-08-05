@@ -10,10 +10,11 @@ import SwiftUI
 
 struct FeatureView: View {
     @Binding var isPresented: Bool
-    
+
     var body: some View {
         NavigationView {
             ZStack {
+                iPhoneLikeBorder()
                 HBackground()
                 VStack {
                     Spacer()
@@ -24,13 +25,14 @@ struct FeatureView: View {
                     Spacer() 
                 }
             }
-            .navigationBarTitle("*", displayMode: .inline)
+            .navigationBarTitle("Glimpse", displayMode: .inline)
             .navigationBarItems(trailing: Button("Dismiss") {
                 isPresented.toggle()
             })
         }
     }
 }
+
 struct AttractionView: View { // Create your AttractionView
     var body: some View {
         Text("AttractionView")

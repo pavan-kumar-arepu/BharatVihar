@@ -9,19 +9,6 @@ import Foundation
 import MapKit
 import SwiftUI
 
-struct IndiaMap: View {
-    var body: some View {
-        NavigationView {
-            VStack {
-                Text("India Map using Apple Maps")
-                MapView()
-                    .edgesIgnoringSafeArea(.all) // Make the map view fullscreen
-            }
-            .navigationBarTitle("Map Example")
-        }
-    }
-}
-
 struct IndiaMapAnimation: View {
     @State private var showFullMap = false
 
@@ -47,9 +34,7 @@ struct IndiaMapAnimation: View {
 }
 
 
-
 struct SmallGlobeIconView: View {
-
     var body: some View {
         Image(systemName: "globe")
             .imageScale(.large)
@@ -59,10 +44,15 @@ struct SmallGlobeIconView: View {
 
 struct IndiaMapFullView: View {
     var body: some View {
-        MapView() // Your full map view
-            .edgesIgnoringSafeArea(.all)
+        ZStack {
+            MapView()
+                  .edgesIgnoringSafeArea(.all)
+        }
     }
 }
+
+
+/// Preview
 struct IndiaMap_Preview: PreviewProvider {
     static var previews: some View {
         IndiaMapAnimation()

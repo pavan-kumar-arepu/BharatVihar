@@ -13,13 +13,13 @@ struct HomeView: View {
 
     var body: some View {
         ZStack {
+            iPhoneLikeBorder()
             HBackground()
             VStack {
                 Spacer()
                 Button("Lets Explore") {
                     isPresentingFeature.toggle()
                 }
-                .padding()
             }
         }
         .fullScreenCover(isPresented: $isPresentingFeature) {
