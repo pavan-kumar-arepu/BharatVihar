@@ -8,7 +8,6 @@
 import Foundation
 import SwiftUI
 
-
 struct Feature: Identifiable {
     let id = UUID()
     let name: String

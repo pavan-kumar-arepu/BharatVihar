@@ -26,6 +26,10 @@
 		0B91F9E72A7EE157004CA0E9 /* Festivals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B91F9E62A7EE157004CA0E9 /* Festivals.swift */; };
 		0B91F9EC2A7EE292004CA0E9 /* PrimeMinisters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B91F9EB2A7EE292004CA0E9 /* PrimeMinisters.swift */; };
 		0B91F9EE2A7EE2DE004CA0E9 /* Services.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B91F9ED2A7EE2DE004CA0E9 /* Services.swift */; };
+		0B91F9F12A815CE6004CA0E9 /* Number.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B91F9F02A815CE6004CA0E9 /* Number.swift */; };
+		0B91F9F32A815D5D004CA0E9 /* Map.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B91F9F22A815D5D004CA0E9 /* Map.swift */; };
+		0B91F9F52A815D8B004CA0E9 /* Feature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B91F9F42A815D8B004CA0E9 /* Feature.swift */; };
+		0B91F9F72A815DBA004CA0E9 /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B91F9F62A815DBA004CA0E9 /* Common.swift */; };
 		0BA939102A7C313900B3F648 /* IndiaMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA9390F2A7C313900B3F648 /* IndiaMap.swift */; };
 		0BA939132A7C31C900B3F648 /* Maps.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA939122A7C31C900B3F648 /* Maps.swift */; };
 /* End PBXBuildFile section */
@@ -51,6 +55,10 @@
 		0B91F9E62A7EE157004CA0E9 /* Festivals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Festivals.swift; sourceTree = "<group>"; };
 		0B91F9EB2A7EE292004CA0E9 /* PrimeMinisters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimeMinisters.swift; sourceTree = "<group>"; };
 		0B91F9ED2A7EE2DE004CA0E9 /* Services.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Services.swift; sourceTree = "<group>"; };
+		0B91F9F02A815CE6004CA0E9 /* Number.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Number.swift; sourceTree = "<group>"; };
+		0B91F9F22A815D5D004CA0E9 /* Map.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Map.swift; sourceTree = "<group>"; };
+		0B91F9F42A815D8B004CA0E9 /* Feature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Feature.swift; sourceTree = "<group>"; };
+		0B91F9F62A815DBA004CA0E9 /* Common.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
 		0BA9390F2A7C313900B3F648 /* IndiaMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndiaMap.swift; sourceTree = "<group>"; };
 		0BA939122A7C31C900B3F648 /* Maps.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Maps.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -86,6 +94,7 @@
 		0B8021D02A7ABAC2006F0CEF /* BharatVihar */ = {
 			isa = PBXGroup;
 			children = (
+				0B91F9EF2A8158BE004CA0E9 /* Models */,
 				0B8021EA2A7AC4CA006F0CEF /* Features */,
 				0B91F9E82A7EE191004CA0E9 /* Background */,
 				0B8021E32A7ABBA8006F0CEF /* Home */,
@@ -155,6 +164,17 @@
 				0B8021EE2A7AC862006F0CEF /* FeatureContainer.swift */,
 			);
 			path = FeatureContainer;
+			sourceTree = "<group>";
+		};
+		0B91F9EF2A8158BE004CA0E9 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				0B91F9F02A815CE6004CA0E9 /* Number.swift */,
+				0B91F9F22A815D5D004CA0E9 /* Map.swift */,
+				0B91F9F42A815D8B004CA0E9 /* Feature.swift */,
+				0B91F9F62A815DBA004CA0E9 /* Common.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		0BA939112A7C31B900B3F648 /* Maps */ = {
@@ -236,8 +256,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0B91F9F72A815DBA004CA0E9 /* Common.swift in Sources */,
 				0B8021E72A7AC45A006F0CEF /* SceneDelegate.swift in Sources */,
 				0B8021F12A7AF2DA006F0CEF /* FeatureParagraph.swift in Sources */,
+				0B91F9F32A815D5D004CA0E9 /* Map.swift in Sources */,
 				0BA939132A7C31C900B3F648 /* Maps.swift in Sources */,
 				0B8021E52A7AC0C7006F0CEF /* HomeBackground.swift in Sources */,
 				0B91F9EE2A7EE2DE004CA0E9 /* Services.swift in Sources */,
@@ -245,9 +267,11 @@
 				0B8021E22A7ABB9F006F0CEF /* HomeView.swift in Sources */,
 				0B8021ED2A7AC857006F0CEF /* Attractions.swift in Sources */,
 				0B8021D42A7ABAC2006F0CEF /* ContentView.swift in Sources */,
+				0B91F9F52A815D8B004CA0E9 /* Feature.swift in Sources */,
 				0B91F9EC2A7EE292004CA0E9 /* PrimeMinisters.swift in Sources */,
 				0B91F9E32A7EE10E004CA0E9 /* Awards.swift in Sources */,
 				0B8021D22A7ABAC2006F0CEF /* BharatViharApp.swift in Sources */,
+				0B91F9F12A815CE6004CA0E9 /* Number.swift in Sources */,
 				0B91F9E52A7EE137004CA0E9 /* HistoryTimeline.swift in Sources */,
 				0B8021E92A7AC48B006F0CEF /* FeaturesView.swift in Sources */,
 				0B91F9E72A7EE157004CA0E9 /* Festivals.swift in Sources */,
