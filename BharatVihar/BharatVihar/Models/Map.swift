@@ -44,5 +44,5 @@ struct CountryState: Codable {
 
 struct MapFeature: Codable {
     let states: [CountryState]
-    let attractions: [CommonFeature]
+    let attractions: [Common]
 }
