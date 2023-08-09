@@ -15,6 +15,8 @@ struct SplashView: View {
                     .scaledToFill()
                     .edgesIgnoringSafeArea(.all)
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
+        HBackground()
+
     }
 }
 

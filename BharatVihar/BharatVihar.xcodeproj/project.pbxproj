@@ -51,6 +51,9 @@
 		0B91FA4A2A82B815004CA0E9 /* FirebaseRemoteConfig in Frameworks */ = {isa = PBXBuildFile; productRef = 0B91FA492A82B815004CA0E9 /* FirebaseRemoteConfig */; };
 		0B91FA4C2A82B815004CA0E9 /* FirebaseRemoteConfigSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 0B91FA4B2A82B815004CA0E9 /* FirebaseRemoteConfigSwift */; };
 		0B91FA4E2A82B815004CA0E9 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 0B91FA4D2A82B815004CA0E9 /* FirebaseStorage */; };
+		0B91FA502A82C793004CA0E9 /* Language.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B91FA4F2A82C793004CA0E9 /* Language.swift */; };
+		0B91FA522A82C7A4004CA0E9 /* AskGPT.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B91FA512A82C7A4004CA0E9 /* AskGPT.swift */; };
+		0B91FA6F2A83EB1A004CA0E9 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 0B91FA6E2A83EB1A004CA0E9 /* Alamofire */; };
 		0BA939102A7C313900B3F648 /* IndiaMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA9390F2A7C313900B3F648 /* IndiaMap.swift */; };
 		0BA939132A7C31C900B3F648 /* Maps.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA939122A7C31C900B3F648 /* Maps.swift */; };
 /* End PBXBuildFile section */
@@ -98,6 +101,8 @@
 		0B91FA402A82B07B004CA0E9 /* LeaderImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeaderImageView.swift; sourceTree = "<group>"; };
 		0B91FA442A82B417004CA0E9 /* SplashView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
 		0B91FA452A82B417004CA0E9 /* ChakraImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChakraImage.swift; sourceTree = "<group>"; };
+		0B91FA4F2A82C793004CA0E9 /* Language.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Language.swift; sourceTree = "<group>"; };
+		0B91FA512A82C7A4004CA0E9 /* AskGPT.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AskGPT.swift; sourceTree = "<group>"; };
 		0BA9390F2A7C313900B3F648 /* IndiaMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndiaMap.swift; sourceTree = "<group>"; };
 		0BA939122A7C31C900B3F648 /* Maps.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Maps.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -108,6 +113,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0B91FA4A2A82B815004CA0E9 /* FirebaseRemoteConfig in Frameworks */,
+				0B91FA6F2A83EB1A004CA0E9 /* Alamofire in Frameworks */,
 				0B91FA4C2A82B815004CA0E9 /* FirebaseRemoteConfigSwift in Frameworks */,
 				0B91FA4E2A82B815004CA0E9 /* FirebaseStorage in Frameworks */,
 			);
@@ -223,6 +229,8 @@
 				0B91F9F62A815DBA004CA0E9 /* Common.swift */,
 				0B91F9F82A818894004CA0E9 /* Quiz.swift */,
 				0B91F9FA2A82A60B004CA0E9 /* Leader.swift */,
+				0B91FA4F2A82C793004CA0E9 /* Language.swift */,
+				0B91FA512A82C7A4004CA0E9 /* AskGPT.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -354,6 +362,7 @@
 				0B91FA492A82B815004CA0E9 /* FirebaseRemoteConfig */,
 				0B91FA4B2A82B815004CA0E9 /* FirebaseRemoteConfigSwift */,
 				0B91FA4D2A82B815004CA0E9 /* FirebaseStorage */,
+				0B91FA6E2A83EB1A004CA0E9 /* Alamofire */,
 			);
 			productName = BharatVihar;
 			productReference = 0B8021CE2A7ABAC2006F0CEF /* BharatVihar.app */;
@@ -385,6 +394,7 @@
 			mainGroup = 0B8021C52A7ABAC2006F0CEF;
 			packageReferences = (
 				0B91FA482A82B815004CA0E9 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				0B91FA6D2A83EB1A004CA0E9 /* XCRemoteSwiftPackageReference "Alamofire" */,
 			);
 			productRefGroup = 0B8021CF2A7ABAC2006F0CEF /* Products */;
 			projectDirPath = "";
@@ -414,6 +424,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0B91F9F72A815DBA004CA0E9 /* Common.swift in Sources */,
+				0B91FA522A82C7A4004CA0E9 /* AskGPT.swift in Sources */,
 				0B8021E72A7AC45A006F0CEF /* SceneDelegate.swift in Sources */,
 				0B8021F12A7AF2DA006F0CEF /* FeatureParagraph.swift in Sources */,
 				0B91FA1C2A82A7D8004CA0E9 /* LeaderRow.swift in Sources */,
@@ -438,6 +449,7 @@
 				0B91F9EC2A7EE292004CA0E9 /* PrimeMinisters.swift in Sources */,
 				0B91F9E32A7EE10E004CA0E9 /* Awards.swift in Sources */,
 				0B91F9F92A818894004CA0E9 /* Quiz.swift in Sources */,
+				0B91FA502A82C793004CA0E9 /* Language.swift in Sources */,
 				0B91FA0C2A82A714004CA0E9 /* FirebaseAPIManager.swift in Sources */,
 				0B8021D22A7ABAC2006F0CEF /* BharatViharApp.swift in Sources */,
 				0B91F9F12A815CE6004CA0E9 /* Number.swift in Sources */,
@@ -668,6 +680,14 @@
 				minimumVersion = 9.0.0;
 			};
 		};
+		0B91FA6D2A83EB1A004CA0E9 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -685,6 +705,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 0B91FA482A82B815004CA0E9 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseStorage;
+		};
+		0B91FA6E2A83EB1A004CA0E9 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0B91FA6D2A83EB1A004CA0E9 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

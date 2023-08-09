@@ -15,6 +15,7 @@ struct LeaderListView: View {
     var leaderVM = LeaderViewModel()
     
     @State private var leaders: [Leader] = []
+    @State private var bgImage = UIImage(named: "DefaultBg")
     @State private var isLoading = false
     
     var body: some View {
@@ -22,17 +23,28 @@ struct LeaderListView: View {
         NavigationView {
             ZStack {
                 IndianGradient()
+                //HBackground()
                 
                 if isLoading {
                     ChakraImage()
                     ProgressView()
                 } else {
-                    List(leaders) { leader in
-                        NavigationLink(destination: LeaderDetail(leader: leader, leaders: leaders)){
-                            LeaderRow(leader: leader)
+                    VStack {
+                        if let backgroundImage = bgImage {
+                               Image(uiImage: backgroundImage)
+                                   .resizable()
+                                   .scaledToFill()
+                                   .frame(height: 200) // Set the desired height for your background image
+                           }
+                        
+                        List(leaders) { leader in
+                            NavigationLink(destination: LeaderDetail(leader: leader, leaders: leaders)){
+                                LeaderRow(leader: leader)
+                            }
                         }
+                        .navigationTitle(" Leaders")
                     }
-                    .navigationTitle(" Leaders")
+                    
                 }
             }
         }
@@ -52,6 +64,7 @@ struct LeaderListView: View {
                 DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
                     isLoading = false
                     leaders = leaderVM.leaders
+                    bgImage = leaderVM.bgImage
                     print("data downloaded completed")
                 }
             }

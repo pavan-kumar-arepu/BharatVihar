@@ -9,6 +9,7 @@
 import Foundation
 import Firebase
 import FirebaseRemoteConfig
+import UIKit
 
 
 /// This class is 
@@ -32,7 +33,12 @@ class DataService {
     /// - Parameters:
     ///   - completion: Leader completion Handler
     ///   - height: The height of the rectangle.
-    func getLeaders(completion: @escaping ([Leader]?) -> Void) {
-        leaderDataProvider.fetchLeaders(completion: completion)
+//    func getLeaders(completion: @escaping ([Leader]?) -> Void) {
+//        leaderDataProvider.fetchLeaders(completion: completion)
+//    }
+    func getLeaderAndBgImage(completion: @escaping ([Leader]?, UIImage?) -> Void) {
+        leaderDataProvider.fetchLeaders { leaders , bgImage in
+            completion(leaders, bgImage)
+        }
     }
 }
