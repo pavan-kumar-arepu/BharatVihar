@@ -6,10 +6,10 @@
 //
 
 import Foundation
-
-struct Language: Codable {
-    let title: String
-    let subtitle: String
-    let description: String
-}
-
+//
+//struct Language: Codable {
+//    let title: String
+//    let subtitle: String
+//    let description: String
+//}
+//

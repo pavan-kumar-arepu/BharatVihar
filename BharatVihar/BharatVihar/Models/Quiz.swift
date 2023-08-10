@@ -7,11 +7,11 @@
 
 import Foundation
 
-
-struct QuizQuestion: Identifiable {
-    let id = UUID()
-    let question: String
-    let options: [String]
-    let correctAnswerIndex: Int
-    let relatedFeature: String
-}
+//
+//struct QuizQuestion: Identifiable {
+//    let id = UUID()
+//    let question: String
+//    let options: [String]
+//    let correctAnswerIndex: Int
+//    let relatedFeature: String
+//}

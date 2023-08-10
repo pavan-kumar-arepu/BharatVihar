@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0B63544A2A858AA100CF8DF6 /* IndiaDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B6354492A858AA100CF8DF6 /* IndiaDataModel.swift */; };
 		0B8021D22A7ABAC2006F0CEF /* BharatViharApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8021D12A7ABAC2006F0CEF /* BharatViharApp.swift */; };
 		0B8021D42A7ABAC2006F0CEF /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8021D32A7ABAC2006F0CEF /* ContentView.swift */; };
 		0B8021D62A7ABAC8006F0CEF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0B8021D52A7ABAC8006F0CEF /* Assets.xcassets */; };
@@ -59,6 +60,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0B6354492A858AA100CF8DF6 /* IndiaDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndiaDataModel.swift; sourceTree = "<group>"; };
 		0B8021CE2A7ABAC2006F0CEF /* BharatVihar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BharatVihar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0B8021D12A7ABAC2006F0CEF /* BharatViharApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BharatViharApp.swift; sourceTree = "<group>"; };
 		0B8021D32A7ABAC2006F0CEF /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -231,6 +233,7 @@
 				0B91F9FA2A82A60B004CA0E9 /* Leader.swift */,
 				0B91FA4F2A82C793004CA0E9 /* Language.swift */,
 				0B91FA512A82C7A4004CA0E9 /* AskGPT.swift */,
+				0B6354492A858AA100CF8DF6 /* IndiaDataModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -443,6 +446,7 @@
 				0B91FA092A82A70A004CA0E9 /* DataService.swift in Sources */,
 				0B91FA472A82B417004CA0E9 /* ChakraImage.swift in Sources */,
 				0B8021ED2A7AC857006F0CEF /* Attractions.swift in Sources */,
+				0B63544A2A858AA100CF8DF6 /* IndiaDataModel.swift in Sources */,
 				0B91FA042A82A69D004CA0E9 /* FirebaseRemoteConfigManager.swift in Sources */,
 				0B8021D42A7ABAC2006F0CEF /* ContentView.swift in Sources */,
 				0B91F9F52A815D8B004CA0E9 /* Feature.swift in Sources */,

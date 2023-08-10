@@ -23,13 +23,13 @@ import Swift
 //    let features: [Feature]
 //}
 //
-
-struct SingleFeature: Identifiable, Codable {
-    let id: String
-    let name: String
-    var isSelected: Bool = false
-}
-
-struct FeatureList: Codable {
-    let features: [SingleFeature]
-}
+//
+//struct SingleFeature: Identifiable, Codable {
+//    let id: String
+//    let name: String
+//    var isSelected: Bool = false
+//}
+//
+//struct FeatureList: Codable {
+//    let features: [SingleFeature]
+//}

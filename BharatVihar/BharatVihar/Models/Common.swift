@@ -17,12 +17,12 @@ import Foundation
 
 // This is for common features like
 // Attractions, Services, Festivals, Photogellary, historyTimeline, Culture
-
-struct Common: Codable {
-    let title: String
-    let description: String
-    let image: String
-    let coordinates: Coordinates?
-    let streetView: Bool?
-    let streetViewImages: [String]?
-}
+//
+//struct Common: Codable {
+//    let title: String
+//    let description: String
+//    let image: String
+//    let coordinates: Coordinates?
+//    let streetView: Bool?
+//    let streetViewImages: [String]?
+//}

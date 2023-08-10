@@ -6,7 +6,7 @@
 //
 
 import Foundation
-
-struct AskGPT: Codable {
-    let questions: [String]
-}
+//
+//struct AskGPT: Codable {
+//    let questions: [String]
+//}

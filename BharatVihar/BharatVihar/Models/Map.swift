@@ -28,21 +28,21 @@ import Swift
 //    // More attractions...
 //  ]
 //}
-struct Coordinates: Codable {
-    let latitude: Double
-    let longitude: Double
-}
-
-struct CountryState: Codable {
-    let name: String
-    let population: String
-    let area: String
-    let parties: [String]
-    let coordinates: Coordinates
-}
-
-
-struct MapFeature: Codable {
-    let states: [CountryState]
-    let attractions: [Common]
-}
+//struct Coordinates: Codable {
+//    let latitude: Double
+//    let longitude: Double
+//}
+//
+//struct CountryState: Codable {
+//    let name: String
+//    let population: String
+//    let area: String
+//    let parties: [String]
+//    let coordinates: Coordinates
+//}
+//
+//
+//struct MapFeature: Codable {
+//    let states: [CountryState]
+//    let attractions: [Common]
+//}

@@ -26,8 +26,6 @@ class DataService {
         leaderDataProvider = FirebaseRemoteConfigManager.shared
     }
     
-    
-    
     /// Responsible to get leaders from DataService and send data to caller via completion Handler
     ///
     /// - Parameters:

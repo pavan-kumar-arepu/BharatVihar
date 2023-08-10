@@ -24,8 +24,6 @@ class FirebaseAPIManager {
         remoteConfig.setDefaults(fromPlist: "GoogleService-Info")
     }
     
-    
-    
     /// Hit a firebase API with help of remoteConfig file
     /// Prerequisite - Need to create a project in firebase console and set a project and download 'GoogleService-Info' and keep in project bundle
     ///

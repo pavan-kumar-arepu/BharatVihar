@@ -37,20 +37,20 @@ struct LeaderDetail: View {
                 VSLeaderDetail(leader: selectedLeaderDetails)
                 
                 // Display grid of Leaders icons at the bottom in a single row
-                HStack(spacing: 0) {
-                    ScrollView(.horizontal, showsIndicators: false) {
-                        LazyHStack(spacing: 16) {
-                            ForEach(leaders) { leader in
-                                Button(action: {
-                                    selectedButtonLeader = leader
-                                }) {
-                                    Image(leader.logo).resizable().frame(width: 50, height: 50)
-                                }
-                            }
-                        }
-                        .padding(.horizontal)
-                    }
-                }
+//                HStack(spacing: 0) {
+//                    ScrollView(.horizontal, showsIndicators: false) {
+//                        LazyHStack(spacing: 16) {
+//                            ForEach(leaders) { leader in
+//                                Button(action: {
+//                                    selectedButtonLeader = leader
+//                                }) {
+//                                    Image(leader.logo).resizable().frame(width: 50, height: 50)
+//                                }
+//                            }
+//                        }
+//                        .padding(.horizontal)
+//                    }
+//                }
                 .frame(height: 50)
                 .padding()
             }
