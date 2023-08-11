@@ -10,6 +10,7 @@ import Foundation
 import Firebase
 import FirebaseRemoteConfig
 import UIKit
+import Alamofire
 
 
 /// This class is 
@@ -43,10 +44,28 @@ class DataService {
     }
     
     func fetchImage(from url: URL, completion: @escaping (UIImage?) -> Void) {
-           // Download image asynchronously using URLSession, Alamofire, or any other library
-           // After downloading, save the image to the local file system using FileManager
-           // Call the completion handler with the downloaded image
-       }
+         let destination: DownloadRequest.Destination = { _, _ in
+             let documentsURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
+             let fileURL = documentsURL.appendingPathComponent("downloadedImage.jpg")
+
+             return (fileURL, [.removePreviousFile, .createIntermediateDirectories])
+         }
+
+         AF.download(url, to: destination).response { response in
+             switch response.result {
+             case .success:
+                 if let fileURL = response.fileURL, let image = UIImage(contentsOfFile: fileURL.path) {
+                     // Update cache (optional)
+                     completion(image)
+                 } else {
+                     completion(nil)
+                 }
+             case .failure(let error):
+                 print("Image download error: \(error)")
+                 completion(nil)
+             }
+         }
+     }
     
     // Private method to parse IndiaData
        private func parseIndiaData(from json: [String: Any]) -> IndiaData? {
@@ -54,5 +73,6 @@ class DataService {
            return dataParser.parseIndiaData(from: json)
        }
     
+
     // You can add more methods here to fetch specific data from the parsed IndiaData structure.
 }
