@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		0B63544A2A858AA100CF8DF6 /* IndiaDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B6354492A858AA100CF8DF6 /* IndiaDataModel.swift */; };
+		0B63544C2A8692E600CF8DF6 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B63544B2A8692E600CF8DF6 /* MainView.swift */; };
+		0B63544E2A8692EF00CF8DF6 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B63544D2A8692EF00CF8DF6 /* MainViewModel.swift */; };
 		0B8021D22A7ABAC2006F0CEF /* BharatViharApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8021D12A7ABAC2006F0CEF /* BharatViharApp.swift */; };
 		0B8021D42A7ABAC2006F0CEF /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8021D32A7ABAC2006F0CEF /* ContentView.swift */; };
 		0B8021D62A7ABAC8006F0CEF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0B8021D52A7ABAC8006F0CEF /* Assets.xcassets */; };
@@ -33,7 +35,6 @@
 		0B91F9F72A815DBA004CA0E9 /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B91F9F62A815DBA004CA0E9 /* Common.swift */; };
 		0B91F9F92A818894004CA0E9 /* Quiz.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B91F9F82A818894004CA0E9 /* Quiz.swift */; };
 		0B91F9FB2A82A60B004CA0E9 /* Leader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B91F9FA2A82A60B004CA0E9 /* Leader.swift */; };
-		0B91FA042A82A69D004CA0E9 /* FirebaseRemoteConfigManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B91FA022A82A69C004CA0E9 /* FirebaseRemoteConfigManager.swift */; };
 		0B91FA052A82A69D004CA0E9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0B91FA032A82A69D004CA0E9 /* GoogleService-Info.plist */; };
 		0B91FA092A82A70A004CA0E9 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B91FA082A82A709004CA0E9 /* DataService.swift */; };
 		0B91FA0C2A82A714004CA0E9 /* FirebaseAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B91FA0A2A82A712004CA0E9 /* FirebaseAPIManager.swift */; };
@@ -61,6 +62,8 @@
 
 /* Begin PBXFileReference section */
 		0B6354492A858AA100CF8DF6 /* IndiaDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndiaDataModel.swift; sourceTree = "<group>"; };
+		0B63544B2A8692E600CF8DF6 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		0B63544D2A8692EF00CF8DF6 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		0B8021CE2A7ABAC2006F0CEF /* BharatVihar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BharatVihar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0B8021D12A7ABAC2006F0CEF /* BharatViharApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BharatViharApp.swift; sourceTree = "<group>"; };
 		0B8021D32A7ABAC2006F0CEF /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -87,7 +90,6 @@
 		0B91F9F62A815DBA004CA0E9 /* Common.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
 		0B91F9F82A818894004CA0E9 /* Quiz.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Quiz.swift; sourceTree = "<group>"; };
 		0B91F9FA2A82A60B004CA0E9 /* Leader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Leader.swift; sourceTree = "<group>"; };
-		0B91FA022A82A69C004CA0E9 /* FirebaseRemoteConfigManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseRemoteConfigManager.swift; sourceTree = "<group>"; };
 		0B91FA032A82A69D004CA0E9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		0B91FA082A82A709004CA0E9 /* DataService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
 		0B91FA0A2A82A712004CA0E9 /* FirebaseAPIManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseAPIManager.swift; sourceTree = "<group>"; };
@@ -191,6 +193,8 @@
 				0B91F9E42A7EE137004CA0E9 /* HistoryTimeline.swift */,
 				0B91F9E62A7EE157004CA0E9 /* Festivals.swift */,
 				0B91F9ED2A7EE2DE004CA0E9 /* Services.swift */,
+				0B63544B2A8692E600CF8DF6 /* MainView.swift */,
+				0B63544D2A8692EF00CF8DF6 /* MainViewModel.swift */,
 			);
 			path = Features;
 			sourceTree = "<group>";
@@ -249,7 +253,6 @@
 		0B91F9FD2A82A65B004CA0E9 /* Firebase */ = {
 			isa = PBXGroup;
 			children = (
-				0B91FA022A82A69C004CA0E9 /* FirebaseRemoteConfigManager.swift */,
 				0B91FA032A82A69D004CA0E9 /* GoogleService-Info.plist */,
 			);
 			path = Firebase;
@@ -447,7 +450,6 @@
 				0B91FA472A82B417004CA0E9 /* ChakraImage.swift in Sources */,
 				0B8021ED2A7AC857006F0CEF /* Attractions.swift in Sources */,
 				0B63544A2A858AA100CF8DF6 /* IndiaDataModel.swift in Sources */,
-				0B91FA042A82A69D004CA0E9 /* FirebaseRemoteConfigManager.swift in Sources */,
 				0B8021D42A7ABAC2006F0CEF /* ContentView.swift in Sources */,
 				0B91F9F52A815D8B004CA0E9 /* Feature.swift in Sources */,
 				0B91F9EC2A7EE292004CA0E9 /* PrimeMinisters.swift in Sources */,
@@ -455,11 +457,13 @@
 				0B91F9F92A818894004CA0E9 /* Quiz.swift in Sources */,
 				0B91FA502A82C793004CA0E9 /* Language.swift in Sources */,
 				0B91FA0C2A82A714004CA0E9 /* FirebaseAPIManager.swift in Sources */,
+				0B63544C2A8692E600CF8DF6 /* MainView.swift in Sources */,
 				0B8021D22A7ABAC2006F0CEF /* BharatViharApp.swift in Sources */,
 				0B91F9F12A815CE6004CA0E9 /* Number.swift in Sources */,
 				0B91F9E52A7EE137004CA0E9 /* HistoryTimeline.swift in Sources */,
 				0B8021E92A7AC48B006F0CEF /* FeaturesView.swift in Sources */,
 				0B91FA1D2A82A7D8004CA0E9 /* LeaderListView.swift in Sources */,
+				0B63544E2A8692EF00CF8DF6 /* MainViewModel.swift in Sources */,
 				0B91FA172A82A7BB004CA0E9 /* VSLeaderDetail.swift in Sources */,
 				0B91F9E72A7EE157004CA0E9 /* Festivals.swift in Sources */,
 				0B91F9FB2A82A60B004CA0E9 /* Leader.swift in Sources */,

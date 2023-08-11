@@ -12,7 +12,8 @@ struct ContentView: View {
     var body: some View {
         VStack {
 //            HomeView()
-            LeaderListView()
+            //LeaderListView()
+            MainView()
         }
         .padding()
     }

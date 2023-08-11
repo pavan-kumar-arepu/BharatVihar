@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+/*
 /// Responsbile to render list of Leaders
 ///
 /// - returns: View
@@ -37,12 +38,12 @@ struct LeaderListView: View {
                                    .frame(height: 200) // Set the desired height for your background image
                            }
                         
-                        List(leaders) { leader in
-                            NavigationLink(destination: LeaderDetail(leader: leader, leaders: leaders)){
-                                LeaderRow(leader: leader)
-                            }
-                        }
-                        .navigationTitle(" Leaders")
+//                        List(leaders) { leader in
+//                            NavigationLink(destination: LeaderDetail(leader: leader, leaders: leaders)){
+//                                LeaderRow(leader: leader)
+//                            }
+//                        }
+                        //.navigationTitle(" Leaders")
                     }
                     
                 }
@@ -80,3 +81,5 @@ struct LeaderListView: View {
             LeaderListView()
         }
     }
+
+*/

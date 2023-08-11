@@ -51,31 +51,31 @@ class DataParser {
 //    }
 //}
 
-class DataParser {
-    func parseData(from json: [String: Any]) -> (backgroundImage: URL?, leaders: [Leader]?) {
-        guard let backgroundImageURLString = json["backgroundImage"] as? String,
-              let backgroundImageURL = URL(string: backgroundImageURLString) else {
-            return (nil, nil)
-        }
-        
-        guard let leadersData = try? JSONSerialization.data(withJSONObject: json["leaders"], options: []),
-              let leaders = try? JSONDecoder().decode([Leader].self, from: leadersData) else {
-            return (backgroundImageURL, nil)
-        }
-        
-        return (backgroundImageURL, leaders)
-    }
-    
-    func downloadBackgroundImage(from url: URL, completion: @escaping (UIImage?) -> Void) {
-        AF.request(url).response { response in
-            if let data = response.data, let image = UIImage(data: data) {
-                completion(image)
-            } else {
-                completion(nil)
-            }
-        }
-    }
-}
+//class DataParser {
+//    func parseData(from json: [String: Any]) -> (backgroundImage: URL?, leaders: [Leader]?) {
+//        guard let backgroundImageURLString = json["backgroundImage"] as? String,
+//              let backgroundImageURL = URL(string: backgroundImageURLString) else {
+//            return (nil, nil)
+//        }
+//
+//        guard let leadersData = try? JSONSerialization.data(withJSONObject: json["leaders"], options: []),
+//              let leaders = try? JSONDecoder().decode([Leader].self, from: leadersData) else {
+//            return (backgroundImageURL, nil)
+//        }
+//
+//        return (backgroundImageURL, leaders)
+//    }
+//
+//    func downloadBackgroundImage(from url: URL, completion: @escaping (UIImage?) -> Void) {
+//        AF.request(url).response { response in
+//            if let data = response.data, let image = UIImage(data: data) {
+//                completion(image)
+//            } else {
+//                completion(nil)
+//            }
+//        }
+//    }
+//}
 
 
 //
@@ -95,3 +95,19 @@ class DataParser {
 //    }
 //}
 //
+
+
+class DataParser {
+    func parseIndiaData(from json: [String: Any]) -> IndiaData? {
+        guard let indiaData = try? JSONSerialization.data(withJSONObject: json, options: []),
+              let parsedIndiaData = try? JSONDecoder().decode(IndiaData.self, from: indiaData) else {
+            return nil
+        }
+        
+        return parsedIndiaData
+    }
+    
+    func downloadImage(from url: URL, completion: @escaping (UIImage?) -> Void) {
+        // Use your image downloading code here (e.g., Alamofire, URLSession, etc.)
+    }
+}

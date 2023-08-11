@@ -20,23 +20,39 @@ import UIKit
 class DataService {
     static let shared = DataService()
     
-    private let leaderDataProvider: LeaderDataProvider
+    private let apiManager: FirebaseAPIManager
+    private let dataParser: DataParser
     
     private init() {
-        leaderDataProvider = FirebaseRemoteConfigManager.shared
+        apiManager = FirebaseAPIManager.shared
+        dataParser = DataParser()
     }
     
-    /// Responsible to get leaders from DataService and send data to caller via completion Handler
-    ///
-    /// - Parameters:
-    ///   - completion: Leader completion Handler
-    ///   - height: The height of the rectangle.
-//    func getLeaders(completion: @escaping ([Leader]?) -> Void) {
-//        leaderDataProvider.fetchLeaders(completion: completion)
-//    }
-    func getLeaderAndBgImage(completion: @escaping ([Leader]?, UIImage?) -> Void) {
-        leaderDataProvider.fetchLeaders { leaders , bgImage in
-            completion(leaders, bgImage)
+    func fetchIndiaData(completion: @escaping (IndiaData?) -> Void) {
+        apiManager.fetchRemoteConfigData { jsonData in
+            if let jsonData = jsonData, let parsedData = self.dataParser.parseIndiaData(from: jsonData) {
+                completion(parsedData)
+            } else {
+                completion(nil)
+            }
         }
     }
+    
+    func fetchBackgroundImage(url: URL, completion: @escaping (UIImage?) -> Void) {
+        dataParser.downloadImage(from: url, completion: completion)
+    }
+    
+    func fetchImage(from url: URL, completion: @escaping (UIImage?) -> Void) {
+           // Download image asynchronously using URLSession, Alamofire, or any other library
+           // After downloading, save the image to the local file system using FileManager
+           // Call the completion handler with the downloaded image
+       }
+    
+    // Private method to parse IndiaData
+       private func parseIndiaData(from json: [String: Any]) -> IndiaData? {
+           // Parsing logic...
+           return dataParser.parseIndiaData(from: json)
+       }
+    
+    // You can add more methods here to fetch specific data from the parsed IndiaData structure.
 }

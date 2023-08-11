@@ -8,6 +8,7 @@
 import Foundation
 import UIKit
 
+/*
 /// This is a responsbile to get Leaders Array from DataService
 ///
 /// This class is used by View i.e. LeadersListView
@@ -43,7 +44,7 @@ class LeaderViewModel: ObservableObject {
     //             }
     //         }
     //     }
-    
+
     func fetchData(completion: @escaping (Bool) -> Void) {
         dataService.getLeaderAndBgImage{ [weak self] leaders, backgroundImage in
             if let leadersArray = leaders {
@@ -56,3 +57,5 @@ class LeaderViewModel: ObservableObject {
         }
     }
 }
+
+*/

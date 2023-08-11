@@ -34,7 +34,7 @@ class FirebaseAPIManager {
             if error == nil {
                 self.remoteConfig.activate { _, _ in
                     let json = self.remoteConfig.configValue(forKey: Constants.remoteJsonKeyName).jsonValue as? [String: Any]
-                    print("Remote Data Received!")
+                    print("Remote Data Received!: \(String(describing: json))")
                     completion(json)
                 }
             } else {
