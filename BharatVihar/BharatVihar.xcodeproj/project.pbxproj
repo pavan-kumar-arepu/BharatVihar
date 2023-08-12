@@ -10,6 +10,7 @@
 		0B63544A2A858AA100CF8DF6 /* IndiaDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B6354492A858AA100CF8DF6 /* IndiaDataModel.swift */; };
 		0B63544C2A8692E600CF8DF6 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B63544B2A8692E600CF8DF6 /* MainView.swift */; };
 		0B63544E2A8692EF00CF8DF6 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B63544D2A8692EF00CF8DF6 /* MainViewModel.swift */; };
+		0B78C4F22A87F169000A036D /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B78C4F12A87F169000A036D /* ImageLoader.swift */; };
 		0B8021D22A7ABAC2006F0CEF /* BharatViharApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8021D12A7ABAC2006F0CEF /* BharatViharApp.swift */; };
 		0B8021D42A7ABAC2006F0CEF /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8021D32A7ABAC2006F0CEF /* ContentView.swift */; };
 		0B8021D62A7ABAC8006F0CEF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0B8021D52A7ABAC8006F0CEF /* Assets.xcassets */; };
@@ -64,6 +65,7 @@
 		0B6354492A858AA100CF8DF6 /* IndiaDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndiaDataModel.swift; sourceTree = "<group>"; };
 		0B63544B2A8692E600CF8DF6 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		0B63544D2A8692EF00CF8DF6 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
+		0B78C4F12A87F169000A036D /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
 		0B8021CE2A7ABAC2006F0CEF /* BharatVihar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BharatVihar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0B8021D12A7ABAC2006F0CEF /* BharatViharApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BharatViharApp.swift; sourceTree = "<group>"; };
 		0B8021D32A7ABAC2006F0CEF /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -280,6 +282,7 @@
 			children = (
 				0B91FA102A82A759004CA0E9 /* Constants.swift */,
 				0B91FA0F2A82A759004CA0E9 /* Extensions.swift */,
+				0B78C4F12A87F169000A036D /* ImageLoader.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -461,6 +464,7 @@
 				0B8021D22A7ABAC2006F0CEF /* BharatViharApp.swift in Sources */,
 				0B91F9F12A815CE6004CA0E9 /* Number.swift in Sources */,
 				0B91F9E52A7EE137004CA0E9 /* HistoryTimeline.swift in Sources */,
+				0B78C4F22A87F169000A036D /* ImageLoader.swift in Sources */,
 				0B8021E92A7AC48B006F0CEF /* FeaturesView.swift in Sources */,
 				0B91FA1D2A82A7D8004CA0E9 /* LeaderListView.swift in Sources */,
 				0B63544E2A8692EF00CF8DF6 /* MainViewModel.swift in Sources */,
