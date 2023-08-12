@@ -5,6 +5,7 @@
 //  Created by Pavankumar Arepu on 17/06/23.
 //
 
+/*
 import Foundation
 import SwiftUI
 
@@ -39,3 +40,5 @@ struct LeaderRow_Previews: PreviewProvider {
         LeaderRow(leader: leader)
     }
 }
+
+*/

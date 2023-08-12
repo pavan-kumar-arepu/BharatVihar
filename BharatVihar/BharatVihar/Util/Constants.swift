@@ -10,7 +10,7 @@ import Foundation
 struct Constants {
     static let apiKey = "YOUR_API_KEY"
     static let baseURL = "https://example.com/api"
-    static let remoteJsonKeyName = "leaders"
+    static let remoteJsonKeyName = "featureDetails"
     // Add more constants as needed
 }
 

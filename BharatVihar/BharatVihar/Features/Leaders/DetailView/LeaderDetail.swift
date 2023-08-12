@@ -15,6 +15,7 @@ import SwiftUI
 ///   - alignment: The height of the rectangle.
 /// - returns: DetailsView of Leader
 
+/*
 struct LeaderDetail: View {
     
     var leader: Leader
@@ -61,10 +62,11 @@ struct LeaderDetail: View {
 
 struct LeaderDetail_Previews: PreviewProvider {
     static var previews: some View {
-        let leader: Leader = Leader(id: 1, name: "Kumar", pmNumber: "12", party: "BJP", rulingPeriod: "1947 - 2023", about: "Very Good", achievements: "Bharat Ratna", logo: "Guljari-Nanda", signatureLogo: "Jawahar-Sign")
+        
+        let pmnumber = PMNumber(times: 1, positions: ["3"])
+        let leader: Leader = Leader(id: 1, name: "Kumar", pmNumber: pmnumber, party: "BJP", rulingPeriod: "1947 - 2023", about: "Very Good", achievements: "Bharat Ratna", logo: "Guljari-Nanda", signatureLogo: "Jawahar-Sign")
         LeaderDetail(leader: leader, leaders: [])
     }
 }
 
-
-
+*/

@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+/*
 /// This class is part of "LeaderDetails"
 /// Responsbile to render top part of this screen(DetailsScreen) based on the selection from ListView
 /// - returns: Top part of LeaderDetails View
@@ -70,3 +71,5 @@ struct VSLeaderDetail_Previews: PreviewProvider {
         VSLeaderDetail(leader: leader)
     }
 }
+
+*/

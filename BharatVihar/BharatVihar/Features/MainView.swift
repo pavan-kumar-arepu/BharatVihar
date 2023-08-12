@@ -14,6 +14,9 @@ struct MainView: View {
     var body: some View {
         VStack {
             // Display your data and images here
+            Spacer()
+            Text("Hello")
+            Spacer()
         }
         .onAppear {
             viewModel.fetchData()

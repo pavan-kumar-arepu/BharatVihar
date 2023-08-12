@@ -18,32 +18,33 @@ class MainViewModel: ObservableObject {
             dataService.fetchIndiaData { [weak self] indiaData in
                 if let indiaData = indiaData {
                     self?.indiaData = indiaData
+                    print("APK", self?.indiaData ?? "")
                 } else {
                     // Handle error
                 }
             }
             
-            // Fetch other images from JSON and download them
-            if let backgroundImageURL = URL(string: "background_image_url_here") {
-                dataService.fetchImage(from: backgroundImageURL) { [weak self] image in
-                    if let image = image {
-                        self?.backgroundImage = image
-                    } else {
-                        // Handle error
-                    }
-                }
-            }
+//            // Fetch other images from JSON and download them
+//            if let backgroundImageURL = URL(string: "background_image_url_here") {
+//                dataService.fetchImage(url: backgroundImageURL) { [weak self] image in
+//                    if let image = image {
+//                        self?.backgroundImage = image
+//                    } else {
+//                        // Handle error
+//                    }
+//                }
+//            }
             
             // You can fetch and download other images in a similar manner
         }
         
-        func downloadImageAndUpdateCache(from url: URL) {
-            dataService.fetchImage(from: url) { [weak self] image in
-                if let image = image {
-                    // Save image to local file system and update cache
-                } else {
-                    // Handle error
-                }
-            }
-        }
+//        func downloadImageAndUpdateCache(from url: URL) {
+//            dataService.fetchImage(from: url) { [weak self] image in
+//                if let image = image {
+//                    // Save image to local file system and update cache
+//                } else {
+//                    // Handle error
+//                }
+//            }
+//        }
     }

@@ -13,94 +13,11 @@ import Foundation
 import Alamofire
 import UIKit
 
-/*
- 
-
-class DataParser {
-    func parseLeaders(from json: [String: Any]) -> [Leader]? {
-        guard let jsonData = try? JSONSerialization.data(withJSONObject: json, options: []) else {
-            return nil
-        }
-        
-        let decoder = JSONDecoder()
-        do {
-            let leaders = try decoder.decode([String: [Leader]].self, from: jsonData)["leaders"]
-            print("Remote Data Parsed!")
-            return leaders
-        } catch {
-            print("Error decoding leaders: \(error)")
-            return nil
-        }
-    }
-}
- */
-//
-//class DataParser {
-//    func parseData(from json: [String: Any]) -> (backgroundImage: URL?, leaders: [Leader]?) {
-//        guard let backgroundImageURLString = json["backgroundImage"] as? String,
-//              let backgroundImageURL = URL(string: backgroundImageURLString) else {
-//            return (nil, nil)
-//        }
-//
-//        guard let leadersData = try? JSONSerialization.data(withJSONObject: json["leaders"], options: []),
-//              let leaders = try? JSONDecoder().decode([Leader].self, from: leadersData) else {
-//            return (backgroundImageURL, nil)
-//        }
-//
-//        return (backgroundImageURL, leaders)
-//    }
-//}
-
-//class DataParser {
-//    func parseData(from json: [String: Any]) -> (backgroundImage: URL?, leaders: [Leader]?) {
-//        guard let backgroundImageURLString = json["backgroundImage"] as? String,
-//              let backgroundImageURL = URL(string: backgroundImageURLString) else {
-//            return (nil, nil)
-//        }
-//
-//        guard let leadersData = try? JSONSerialization.data(withJSONObject: json["leaders"], options: []),
-//              let leaders = try? JSONDecoder().decode([Leader].self, from: leadersData) else {
-//            return (backgroundImageURL, nil)
-//        }
-//
-//        return (backgroundImageURL, leaders)
-//    }
-//
-//    func downloadBackgroundImage(from url: URL, completion: @escaping (UIImage?) -> Void) {
-//        AF.request(url).response { response in
-//            if let data = response.data, let image = UIImage(data: data) {
-//                completion(image)
-//            } else {
-//                completion(nil)
-//            }
-//        }
-//    }
-//}
-
-
-//
-//// Example usage
-//if let json = try? JSONSerialization.jsonObject(with: jsonData, options: []) as? [String: Any] {
-//    let dataParser = DataParser()
-//    let parsedData = dataParser.parseData(from: json)
-//
-//    if let backgroundImageURL = parsedData.backgroundImage {
-//        // Download the background image using the URL
-//        // You can use libraries like Alamofire or URLSession to download the image
-//        // Once the image is downloaded, you can use it in your UI
-//    }
-//
-//    if let leaders = parsedData.leaders {
-//        // Use the parsed leaders data in your app
-//    }
-//}
-//
-
-
 class DataParser {
     func parseIndiaData(from json: [String: Any]) -> IndiaData? {
         guard let indiaData = try? JSONSerialization.data(withJSONObject: json, options: []),
               let parsedIndiaData = try? JSONDecoder().decode(IndiaData.self, from: indiaData) else {
+            print("Sorry buddy, there is some parsing issue!, please check")
             return nil
         }
         
@@ -108,6 +25,26 @@ class DataParser {
     }
     
     func downloadImage(from url: URL, completion: @escaping (UIImage?) -> Void) {
-        // Use your image downloading code here (e.g., Alamofire, URLSession, etc.)
-    }
+         let destination: DownloadRequest.Destination = { _, _ in
+             let documentsURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
+             let fileURL = documentsURL.appendingPathComponent("downloadedImage.jpg")
+
+             return (fileURL, [.removePreviousFile, .createIntermediateDirectories])
+         }
+
+         AF.download(url, to: destination).response { response in
+             switch response.result {
+             case .success:
+                 if let fileURL = response.fileURL, let image = UIImage(contentsOfFile: fileURL.path) {
+                     // Update cache (optional)
+                     completion(image)
+                 } else {
+                     completion(nil)
+                 }
+             case .failure(let error):
+                 print("Image download error: \(error)")
+                 completion(nil)
+             }
+         }
+     }
 }

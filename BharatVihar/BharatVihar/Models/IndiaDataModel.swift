@@ -12,23 +12,43 @@ struct Coordinates: Codable {
     let longitude: Double
 }
 
+//With this modification, the decodeIfPresent method will handle the optional decoding of the "coordinates" field, and your decoding should work correctly for cases when the "coordinates" field is missing.
+//Remember to make similar adjustments to other properties if they are also optional in your JSON data.
+
 struct CommonFeature: Codable {
-    let id: String
+    let id: Int
     let title: String
+    let subtitle: String?
     let description: String
-    let image: String
-    let coordinates: Coordinates
-    let streetView: Bool
+    let image: String?
+    let coordinates: Coordinates?
+    let streetView: Bool?
+    
+    enum CodingKeys: String, CodingKey {
+        case id, title, subtitle, description, image, coordinates, streetView
+    }
+    
+    init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        id = try container.decode(Int.self, forKey: .id)
+        title = try container.decode(String.self, forKey: .title)
+        subtitle = try container.decodeIfPresent(String.self, forKey: .subtitle)
+        description = try container.decode(String.self, forKey: .description)
+        image = try container.decodeIfPresent(String.self, forKey: .image)
+        coordinates = try container.decodeIfPresent(Coordinates.self, forKey: .coordinates)
+        streetView = try container.decodeIfPresent(Bool.self, forKey: .streetView)
+    }
 }
 
+
 struct Category: Codable, Identifiable {
-    let id: String
+    let id: Int
     let title: String
     let items: [CommonFeature]
 }
 
 struct MapsInfo: Codable {
-    let id: String
+    let id: Int
     let stateName: String
     let population: String
     let area: String
@@ -39,17 +59,56 @@ struct MapsInfo: Codable {
 struct Leader: Codable {
     let id: Int
     let name: String
-    let pmNumber: String
+    let pmNumber: PMNumber
     let party: String
     let rulingPeriod: String
     let about: String
     let achievements: String
     let logo: String
-    let signatureLogo: String
+    let signatureLogo: String?
+    
+    enum CodingKeys: String, CodingKey {
+        case id, name, pmNumber, party, rulingPeriod, about, achievements, logo, signatureLogo
+    }
+    
+    init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        id = try container.decode(Int.self, forKey: .id)
+        print("APK",id)
+        name = try container.decode(String.self, forKey: .name)
+        print("APK",name)
+
+        pmNumber = try container.decode(PMNumber.self, forKey: .pmNumber)
+        print("APK",pmNumber)
+
+        party = try container.decode(String.self, forKey: .party)
+        print("APK",party)
+
+        rulingPeriod = try container.decode(String.self, forKey: .rulingPeriod)
+        print("APK",rulingPeriod)
+
+        about = try container.decode(String.self, forKey: .about)
+        print("APK",about)
+
+        achievements = try container.decode(String.self, forKey: .achievements)
+        print("APK",achievements)
+
+        logo = try container.decode(String.self, forKey: .logo)
+        print("APK",logo)
+
+        signatureLogo = try container.decodeIfPresent(String.self, forKey: .signatureLogo) // Use decodeIfPresent for optional fields
+        print("APK", signatureLogo)
+
+    }
+}
+
+struct PMNumber: Codable {
+    let times: Int
+    let positions: [String]
 }
 
 struct QuizQuestion: Codable {
-    let id: String
+    let id: Int
     let question: String
     let options: [String]
     let correctAnswerIndex: Int
