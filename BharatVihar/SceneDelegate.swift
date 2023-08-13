@@ -15,7 +15,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         if let windowScene = scene as? UIWindowScene {
             let window = UIWindow(windowScene: windowScene)
-            let contentView = HomeView() // Set your root view here
+            let dataService = DataService.shared
+            let viewModel = HomeViewModel(dataService: dataService)
+            let contentView = HomeView(viewModel: viewModel) // Set your root view here
             window.rootViewController = UIHostingController(rootView: contentView)
             self.window = window
             window.makeKeyAndVisible()

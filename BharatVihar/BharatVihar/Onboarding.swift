@@ -36,7 +36,7 @@ struct OnboardingScreenView: View {
             
             TabView(selection: $currentPage) {
                 welcomeView()
-
+                
                 ForEach(0..<contentPairs.count) { index in
                     contentView(pair: contentPairs[index], index: index)
                         .tag(index + 1)
@@ -66,8 +66,10 @@ struct OnboardingScreenView: View {
             }
         }
         .fullScreenCover(isPresented: $isPresentingHome) {
-                    HomeView()
-                }
+            let dataService = DataService.shared
+            let homeViewModel = HomeViewModel(dataService: dataService)
+            HomeView(viewModel: homeViewModel)
+        }
     }
     
     func welcomeView() -> some View {

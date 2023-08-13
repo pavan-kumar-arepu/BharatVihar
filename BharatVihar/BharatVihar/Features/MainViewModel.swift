@@ -8,6 +8,7 @@
 import Foundation
 import SwiftUI
 
+/*
 class MainViewModel: ObservableObject {
     @Published var indiaData: IndiaData?
     @Published var backgroundImage: UIImage?
@@ -61,3 +62,5 @@ class MainViewModel: ObservableObject {
     }
 
 }
+
+*/

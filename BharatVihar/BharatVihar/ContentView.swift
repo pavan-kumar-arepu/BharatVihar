@@ -11,9 +11,9 @@ struct ContentView: View {
     
     var body: some View {
         VStack {
-//            HomeView()
-            //LeaderListView()
-            MainView()
+            let dataService = DataService.shared
+            let viewModel = HomeViewModel(dataService: dataService)
+            HomeView(viewModel: viewModel)
         }
         .padding()
     }

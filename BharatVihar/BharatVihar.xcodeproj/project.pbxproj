@@ -62,6 +62,7 @@
 		0B91FA6F2A83EB1A004CA0E9 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 0B91FA6E2A83EB1A004CA0E9 /* Alamofire */; };
 		0BA939102A7C313900B3F648 /* IndiaMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA9390F2A7C313900B3F648 /* IndiaMap.swift */; };
 		0BA939132A7C31C900B3F648 /* Maps.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA939122A7C31C900B3F648 /* Maps.swift */; };
+		0BBB87802A893173003644AB /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BBB877F2A893173003644AB /* HomeViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -117,6 +118,7 @@
 		0B91FA512A82C7A4004CA0E9 /* AskGPT.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AskGPT.swift; sourceTree = "<group>"; };
 		0BA9390F2A7C313900B3F648 /* IndiaMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndiaMap.swift; sourceTree = "<group>"; };
 		0BA939122A7C31C900B3F648 /* Maps.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Maps.swift; sourceTree = "<group>"; };
+		0BBB877F2A893173003644AB /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -186,6 +188,7 @@
 			isa = PBXGroup;
 			children = (
 				0B8021E12A7ABB9F006F0CEF /* HomeView.swift */,
+				0BBB877F2A893173003644AB /* HomeViewModel.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -464,6 +467,7 @@
 				0B91FA472A82B417004CA0E9 /* ChakraImage.swift in Sources */,
 				0B8021ED2A7AC857006F0CEF /* Attractions.swift in Sources */,
 				0B63544A2A858AA100CF8DF6 /* IndiaDataModel.swift in Sources */,
+				0BBB87802A893173003644AB /* HomeViewModel.swift in Sources */,
 				0B8021D42A7ABAC2006F0CEF /* ContentView.swift in Sources */,
 				0B91F9F52A815D8B004CA0E9 /* Feature.swift in Sources */,
 				0B91F9EC2A7EE292004CA0E9 /* PrimeMinisters.swift in Sources */,

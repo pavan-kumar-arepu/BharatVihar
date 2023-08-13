@@ -15,7 +15,20 @@ class AppDelegate: NSObject, UIApplicationDelegate {
     func application(_ application: UIApplication,
                      didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
         FirebaseApp.configure()
-        _ = DataService.shared
+        // Fetch data immediately when the app launches
+//        DataService.shared.fetchIndiaData { _ in }
+        
+        DataService.shared.fetchIndiaData { indiaData in
+            if let data = indiaData {
+                // Data was fetched successfully, you can perform any necessary actions
+                print("Fetched data:", data)
+            } else {
+                // Handle the absence of data or an error
+                DataService.shared.loadCachedIndiaData()
+                print("Failed to fetch data.")
+            }
+        }
+
         return true
     }
 }
@@ -23,19 +36,27 @@ class AppDelegate: NSObject, UIApplicationDelegate {
 @main
 struct BharatViharApp: App {
     // register app delegate for Firebase setup
-
+    
     @StateObject var userData = UserData()
     
     let onboardingShownKey = "onboardingShown"
-
+    
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
-
+    
     var body: some Scene {
         WindowGroup {
-//            LaunchScreenView() // Show the launch screen first
+//            let cachedData = DataService.shared.getCachedIndiaData() // Get cached data
 
             if UserDefaults.standard.bool(forKey: onboardingShownKey) {
                 ContentView()
+                    .environmentObject(userData)
+//                    .onAppear {
+//                        if cachedData != nil {
+//                            // Handle the availability of cached data
+//                        } else {
+//                            // Handle the absence of cached data
+//                        }
+//                    }
             } else {
                 OnboardingScreenView()
                     .environmentObject(userData)
@@ -44,27 +65,9 @@ struct BharatViharApp: App {
     }
 }
 
+
+
+
 class UserData: ObservableObject {
     @Published var onboardingShown = false
 }
-
-/*
- var body: some Scene {
-     WindowGroup {
-         LaunchScreenView() // Show the launch screen first
-             .onAppear {
-                 DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
-                     userData.showOnboarding = true
-                     if UserDefaults.standard.bool(forKey: onboardingShownKey) {
-                         ContentView()
-                     } else {
-                         OnboardingScreenView()
-                             .environmentObject(userData)
-                     }
-                 }
-             }
-     }
-     
- }
-}
- */
