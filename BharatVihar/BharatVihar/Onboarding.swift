@@ -14,6 +14,8 @@ struct OnboardingScreenView: View {
     @State private var animateLogo = false
     @State private var animateText = false
     @State private var currentPage = 0
+    @State private var isPresentingHome = false // Add this state
+
     
     struct ImageTextPair {
         let imageName: String
@@ -63,6 +65,9 @@ struct OnboardingScreenView: View {
                 animateLogo = false
             }
         }
+        .fullScreenCover(isPresented: $isPresentingHome) {
+                    HomeView()
+                }
     }
     
     func welcomeView() -> some View {
@@ -82,23 +87,6 @@ struct OnboardingScreenView: View {
         )
     }
     
-//    func contentView(pair: ImageTextPair, index: Int) -> some View {
-//        return AnyView(
-//            ZStack {
-//
-//                Image(pair.imageName)
-//                    .resizable()
-//                    .aspectRatio(contentMode: .fill)
-//                    .frame(maxWidth: .infinity)
-//                Text(pair.text)
-//                    .font(.headline)
-//                    .foregroundColor(.gray)
-//                    .multilineTextAlignment(.center)
-//                    .padding(.bottom, 40)
-//            }
-//        )
-//    }
-    
     func contentView(pair: ImageTextPair, index: Int) -> some View {
         return AnyView (
             ZStack {
@@ -117,21 +105,25 @@ struct OnboardingScreenView: View {
     }
     
     func dismissButton() -> some View {
-        Button(action: {
-            userData.onboardingShown = true
-        }) {
-            Text("Get Started")
-                .fontWeight(.semibold)
-                .padding()
-                .frame(maxWidth: .infinity)
-                .background(Color.blue)
-                .foregroundColor(.white)
-                .cornerRadius(10)
-                .padding(.vertical, 20)
-        }
-    }
-}
-
+          Button(action: {
+              withAnimation(.easeInOut(duration: 0.5)) {
+                  userData.onboardingShown = true
+                  animateLogo = false
+                  animateText = false
+                  isPresentingHome = true // Present the HomeView
+              }
+          }) {
+              Text("Get Started")
+                  .fontWeight(.semibold)
+                  .padding()
+                  .frame(maxWidth: .infinity)
+                  .background(Color.blue)
+                  .foregroundColor(.white)
+                  .cornerRadius(10)
+                  .padding(.vertical, 20)
+          }
+      }
+  }
 
 
 struct OnboardingScreenView_preview: PreviewProvider {
