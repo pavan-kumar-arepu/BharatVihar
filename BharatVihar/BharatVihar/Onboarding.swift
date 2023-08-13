@@ -8,6 +8,7 @@
 import Foundation
 import SwiftUI
 
+
 struct OnboardingScreenView: View {
     @EnvironmentObject var userData: UserData
     @State private var animateLogo = false
@@ -20,76 +21,117 @@ struct OnboardingScreenView: View {
     }
     
     let contentPairs: [ImageTextPair] = [
-        ImageTextPair(imageName: "TopOrange", text: "The top saffron band symbolizes the country's strength and courage."),
-        ImageTextPair(imageName: "BottomGreen", text: "The bottom green band signifies the land's fertility, growth, and auspiciousness."),
-        ImageTextPair(imageName: "AshokaChakra", text: "The middle white band represents peace and truth, adorned with the Dharma Chakra.")
+        ImageTextPair(imageName: "fullOrange", text: "The top saffron band symbolizes the country's strength and courage."),
+        ImageTextPair(imageName: "fullGreen", text: "The bottom green band signifies the land's fertility, growth, and auspiciousness."),
+        ImageTextPair(imageName: "fullColour", text: "") // Placeholder for third swipe
     ]
     
     var body: some View {
         VStack {
             LaunchLogo()
-                .offset(y: animateLogo ? -60 : 0)
+                .offset(y: animateLogo ? (currentPage == 0 ? 200 : 50) : 200)
                 .animation(Animation.easeInOut(duration: 1).delay(0))
             
             TabView(selection: $currentPage) {
-                animatedElement(isVisible: $animateText, delay: 1) {
-                    VStack{
-                        Text("Welcome to ExploreIndia")
-                            .font(.title)
-                            .bold()
-                            .foregroundColor(Color.blue.opacity(0.8))
-                            .padding(.bottom, 20)
-                        Text("In this app, we'll begin by exploring the national flag of India.")
-                            .font(.headline)
-                            .foregroundColor(.gray)
-                            .multilineTextAlignment(.center)
-                            .padding(.bottom, 40)
-                    }
-                }
-                ForEach(0..<contentPairs.count) { index in
-                    let pair = contentPairs[index]
-                    animatedElement(isVisible: $animateText, delay: Double(index) * 0.5 + 1.5) {
-                        animateLogo = false // Hide the LaunchLogo after swiping to other pages
+                welcomeView()
 
-                        VStack{
-                            Image(pair.imageName)
-                                .resizable()
-                                .scaledToFit()
-                            Text(pair.text)
-                                .font(.headline)
-                                .foregroundColor(.gray)
-                                .multilineTextAlignment(.center)
-                                .padding(.bottom, 40)
-                        }
-                    }
-                    .tag(index + 1)
+                ForEach(0..<contentPairs.count) { index in
+                    contentView(pair: contentPairs[index], index: index)
+                        .tag(index + 1)
                 }
             }
             .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
             PageControl(numberOfPages: contentPairs.count + 1, currentPage: $currentPage)
+            
+            if currentPage == contentPairs.count {
+                dismissButton()
+            }
         }
         .padding()
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(Color.white)
         .edgesIgnoringSafeArea(.all)
         .onAppear {
-            withAnimation {
-                animateLogo = true
-            }
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0) {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) { // Delay to make sure the animation runs after appearance
                 withAnimation {
-                    animateText = true
+                    animateLogo = true
                 }
+            }
+        }
+        .onChange(of: currentPage) { newValue in
+            if newValue == 0 {
+                animateLogo = false
             }
         }
     }
     
-    func animatedElement<Content: View>(isVisible: Binding<Bool>, delay: Double, @ViewBuilder content: () -> Content) -> some View {
-        content()
-            .opacity(isVisible.wrappedValue ? 1 : 0)
-            .animation(Animation.easeInOut(duration: 1).delay(delay))
+    func welcomeView() -> some View {
+        return AnyView(
+            VStack {
+                Text("Welcome to ExploreIndia")
+                    .font(.title)
+                    .bold()
+                    .foregroundColor(Color.blue.opacity(0.8))
+                    .padding(.bottom, 20)
+                Text("In this app, we'll begin by exploring the national flag of India.")
+                    .font(.headline)
+                    .foregroundColor(.gray)
+                    .multilineTextAlignment(.center)
+                    .padding(.bottom, 40)
+            }
+        )
+    }
+    
+//    func contentView(pair: ImageTextPair, index: Int) -> some View {
+//        return AnyView(
+//            ZStack {
+//
+//                Image(pair.imageName)
+//                    .resizable()
+//                    .aspectRatio(contentMode: .fill)
+//                    .frame(maxWidth: .infinity)
+//                Text(pair.text)
+//                    .font(.headline)
+//                    .foregroundColor(.gray)
+//                    .multilineTextAlignment(.center)
+//                    .padding(.bottom, 40)
+//            }
+//        )
+//    }
+    
+    func contentView(pair: ImageTextPair, index: Int) -> some View {
+        return AnyView (
+            ZStack {
+                    Image(pair.imageName)
+                        .resizable()
+                        .aspectRatio(contentMode: .fill)
+                        .frame(maxWidth: .infinity)
+                
+                Text(pair.text)
+                    .font(.headline)
+                    .foregroundColor(.gray)
+                    .multilineTextAlignment(.center)
+                    .padding(.bottom, 40)
+            }
+        )
+    }
+    
+    func dismissButton() -> some View {
+        Button(action: {
+            userData.onboardingShown = true
+        }) {
+            Text("Get Started")
+                .fontWeight(.semibold)
+                .padding()
+                .frame(maxWidth: .infinity)
+                .background(Color.blue)
+                .foregroundColor(.white)
+                .cornerRadius(10)
+                .padding(.vertical, 20)
+        }
     }
 }
+
 
 
 struct OnboardingScreenView_preview: PreviewProvider {
