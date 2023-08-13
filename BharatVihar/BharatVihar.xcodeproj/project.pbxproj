@@ -63,6 +63,7 @@
 		0BA939102A7C313900B3F648 /* IndiaMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA9390F2A7C313900B3F648 /* IndiaMap.swift */; };
 		0BA939132A7C31C900B3F648 /* Maps.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA939122A7C31C900B3F648 /* Maps.swift */; };
 		0BBB87802A893173003644AB /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BBB877F2A893173003644AB /* HomeViewModel.swift */; };
+		0BBB87822A8946C9003644AB /* FeatureViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BBB87812A8946C9003644AB /* FeatureViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -119,6 +120,7 @@
 		0BA9390F2A7C313900B3F648 /* IndiaMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndiaMap.swift; sourceTree = "<group>"; };
 		0BA939122A7C31C900B3F648 /* Maps.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Maps.swift; sourceTree = "<group>"; };
 		0BBB877F2A893173003644AB /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		0BBB87812A8946C9003644AB /* FeatureViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -227,6 +229,7 @@
 			children = (
 				0B8021F22A7B0A1F006F0CEF /* HighlightedTextView.swift */,
 				0B8021E82A7AC48B006F0CEF /* FeaturesView.swift */,
+				0BBB87812A8946C9003644AB /* FeatureViewModel.swift */,
 				0B8021F02A7AF2DA006F0CEF /* FeatureParagraph.swift */,
 			);
 			path = Glimpse;
@@ -479,6 +482,7 @@
 				0B8021D22A7ABAC2006F0CEF /* BharatViharApp.swift in Sources */,
 				0B91F9F12A815CE6004CA0E9 /* Number.swift in Sources */,
 				0B91F9E52A7EE137004CA0E9 /* HistoryTimeline.swift in Sources */,
+				0BBB87822A8946C9003644AB /* FeatureViewModel.swift in Sources */,
 				0B78C4F22A87F169000A036D /* ImageLoader.swift in Sources */,
 				0B8021E92A7AC48B006F0CEF /* FeaturesView.swift in Sources */,
 				0B91FA1D2A82A7D8004CA0E9 /* LeaderListView.swift in Sources */,

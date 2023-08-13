@@ -7,6 +7,14 @@
 
 import Foundation
 
+
+struct FeatureList: Codable {
+    let id: Int
+    let title: String
+    let highlightWords: [String]
+    let description: String
+}
+
 struct Coordinates: Codable {
     let latitude: Double
     let longitude: Double
@@ -97,7 +105,7 @@ struct Leader: Codable {
         print("APK",logo)
 
         signatureLogo = try container.decodeIfPresent(String.self, forKey: .signatureLogo) // Use decodeIfPresent for optional fields
-        print("APK", signatureLogo)
+        print("APK", signatureLogo as Any)
 
     }
 }
@@ -120,6 +128,7 @@ struct IndiaData: Codable {
 }
 
 struct FeaturesDetails: Codable {
+    let featureList: [FeatureList]
     let home: [CommonFeature]
     let culture: [CommonFeature]
     let attractions: [CommonFeature]
@@ -135,11 +144,12 @@ struct FeaturesDetails: Codable {
     let askGPT: [String]
     
     enum CodingKeys: String, CodingKey {
-        case home, culture, attractions, awards, services, historyTimeline, festivals, numbers, maps, languages, quiz, leaders, askGPT
+        case featureList, home, culture, attractions, awards, services, historyTimeline, festivals, numbers, maps, languages, quiz, leaders, askGPT
     }
     
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
+        featureList = try container.decode([FeatureList].self, forKey: .featureList)
         home = try container.decode([CommonFeature].self, forKey: .home)
         culture = try container.decode([CommonFeature].self, forKey: .culture)
         attractions = try container.decode([CommonFeature].self, forKey: .attractions)
@@ -157,6 +167,7 @@ struct FeaturesDetails: Codable {
     
     func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(featureList, forKey: .featureList)
         try container.encode(home, forKey: .home)
         try container.encode(culture, forKey: .culture)
         try container.encode(attractions, forKey: .attractions)

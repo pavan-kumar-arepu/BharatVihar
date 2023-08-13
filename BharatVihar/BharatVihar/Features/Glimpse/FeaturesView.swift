@@ -10,19 +10,25 @@ import SwiftUI
 
 struct FeatureView: View {
     @Binding var isPresented: Bool
+    @ObservedObject var viewModel: FeatureListViewModel
 
     var body: some View {
         NavigationView {
             ZStack {
                 iPhoneLikeBorder()
-                HBackground()
+                HBackground().background(.white)
                 VStack {
                     Spacer()
-                    Text("Glimpse of India")
-                    Spacer() // Add a spacer to push the content to the top
-                    FeatureParagraphView()
+                    Text(viewModel.featureWelcomeTitle)
+                        .font(.largeTitle)
+                        .fontWeight(.bold)
+                        .foregroundColor(.blue)
+                        .padding()
+                        .shadow(radius: 4)
+                    Spacer()
+                    FeatureParagraphView(viewModel: viewModel)
                         .padding([.leading, .trailing])
-                    Spacer() 
+                    Spacer()
                 }
             }
             .navigationBarTitle("Glimpse", displayMode: .inline)
@@ -53,6 +59,9 @@ struct TraditionView: View { // Create your PhotogalleryView
 
 struct FeatureView_Previews: PreviewProvider {
     static var previews: some View {
-        FeatureView(isPresented: .constant(false)) // Provide a binding here
+        let dataService = DataService.shared
+        let viewModel = FeatureListViewModel(dataService: dataService)
+        
+        FeatureView(isPresented: .constant(false), viewModel: viewModel) // Provide a binding here
     }
 }
