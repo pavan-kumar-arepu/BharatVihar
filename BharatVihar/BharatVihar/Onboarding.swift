@@ -133,21 +133,3 @@ struct OnboardingScreenView_preview: PreviewProvider {
         OnboardingScreenView()
     }
 }
-
-
-struct PageControl: UIViewRepresentable {
-    var numberOfPages: Int
-    @Binding var currentPage: Int
-    
-    func makeUIView(context: Context) -> UIPageControl {
-        let pageControl = UIPageControl()
-        pageControl.numberOfPages = numberOfPages
-        pageControl.currentPageIndicatorTintColor = .blue
-        pageControl.pageIndicatorTintColor = .gray
-        return pageControl
-    }
-    
-    func updateUIView(_ uiView: UIPageControl, context: Context) {
-        uiView.currentPage = currentPage
-    }
-}

@@ -15,29 +15,44 @@ struct FeatureParagraphView: View {
 
     var body: some View {
         VStack {
-            HighlightedTextView(paragraph: viewModel.welcomeParagraph, // Use view model's welcomeParagraph
-                                highlightedWords: viewModel.highlightedWords, // Use view model's highlightedWords
+            HighlightedTextView(paragraph: viewModel.welcomeParagraph,
+                                highlightedWords: viewModel.highlightedWords,
                                 onTappedWord: { word in
                                     self.tappedWord = word
                                 })
                 .frame(height: 300)
                 .background(
-                    // Use NavigationLinks with viewModel to destinations
                     NavigationLink(
-                        destination: PhotogalleryView(),
+                        destination: viewModel.destinationForTag(tappedWord),
+                        tag: tappedWord ?? "nothingTappedInitially",
+                        selection: $tappedWord,
+                        label: EmptyView.init
+                    )
+                )
+        }
+    }
+}
+
+
+
+            /*
+                .background(
+                    NavigationLink(
+                        destination: AttractionView(),
                         tag: "Photogallery",
                         selection: $tappedWord,
                         label: EmptyView.init
                     )
                 )
-                .background(
-                    NavigationLink(
-                        destination: AttractionView(),
-                        tag: "Attractions",
-                        selection: $tappedWord,
-                        label: EmptyView.init
-                    )
-                )
+             .background(
+                 // Use NavigationLinks with viewModel to destinations
+                 NavigationLink(
+                     destination: PhotogalleryView(),
+                     tag: "Photogallery",
+                     selection: $tappedWord,
+                     label: EmptyView.init
+                 )
+             )
                 .background(
                     NavigationLink(
                         destination: TraditionView(),
@@ -54,9 +69,7 @@ struct FeatureParagraphView: View {
                         label: EmptyView.init
                     )
                 )
-        }
-    }
-}
+             */
 
 
 struct FeatureParagraphView_Previews: PreviewProvider {

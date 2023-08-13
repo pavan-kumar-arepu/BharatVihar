@@ -31,7 +31,7 @@ class DataService {
     private let apiManager: FirebaseAPIManager
     private let dataParser: DataParser
     
-    private var cachedIndiaData: IndiaData?
+    var cachedIndiaData: IndiaData?
     
     
     private init() {

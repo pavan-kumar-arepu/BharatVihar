@@ -23,7 +23,7 @@ struct Coordinates: Codable {
 //With this modification, the decodeIfPresent method will handle the optional decoding of the "coordinates" field, and your decoding should work correctly for cases when the "coordinates" field is missing.
 //Remember to make similar adjustments to other properties if they are also optional in your JSON data.
 
-struct CommonFeature: Codable {
+struct CommonFeature: Codable, Identifiable {
     let id: Int
     let title: String
     let subtitle: String?
@@ -47,7 +47,6 @@ struct CommonFeature: Codable {
         streetView = try container.decodeIfPresent(Bool.self, forKey: .streetView)
     }
 }
-
 
 struct Category: Codable, Identifiable {
     let id: Int

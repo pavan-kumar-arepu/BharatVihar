@@ -8,6 +8,12 @@
 import Foundation
 import SwiftUI
 
+struct FeatureDestination<T: View>: Identifiable {
+    var id = UUID()
+    let tag: String
+    let view: T
+}
+
 struct FeatureView: View {
     @Binding var isPresented: Bool
     @ObservedObject var viewModel: FeatureListViewModel
@@ -36,24 +42,6 @@ struct FeatureView: View {
                 isPresented.toggle()
             })
         }
-    }
-}
-
-struct AttractionView: View { // Create your AttractionView
-    var body: some View {
-        Text("AttractionView")
-    }
-}
-
-struct PhotogalleryView: View { // Create your PhotogalleryView
-    var body: some View {
-        Text("Photogallery")
-    }
-}
-
-struct TraditionView: View { // Create your PhotogalleryView
-    var body: some View {
-        Text("tradition")
     }
 }
 
