@@ -20,6 +20,7 @@ struct GenericFeatureDetailView: View {
     let featureData: [CommonFeature] // An array of feature data
     
     var body: some View {
+
         TabView {
             ForEach(featureData) { feature in
                 FeatureDetailPage(feature: feature)
@@ -29,15 +30,27 @@ struct GenericFeatureDetailView: View {
     }
 }
 
+import SwiftUI
+
+
 struct FeatureDetailPage: View {
     let feature: CommonFeature // A single feature data
     
     var body: some View {
         VStack {
-            Image(feature.image ?? "Heritage-Bg")
-                .resizable()
-                .aspectRatio(contentMode: .fit)
-                .frame(height: 200)
+            if let imageUrl = feature.image {
+                // Load the image directly here
+                RemoteImage(url: imageUrl)
+                    .aspectRatio(contentMode: .fit)
+                    .frame(height: UIScreen.main.bounds.height * 0.3)
+                    .padding(.horizontal, 20)
+            } else {
+                Image("Heritage-Bg") // Placeholder image
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(height: UIScreen.main.bounds.height * 0.3)
+                    .padding(.horizontal, 20)
+            }
             
             Text(feature.title)
                 .font(.title)

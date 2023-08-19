@@ -12,9 +12,6 @@ class FeatureListViewModel: ObservableObject {
     
     var featureDestinations: [FeatureDestination<AnyView>] = []
     @Published var selectedFeatureTag: String? = nil
-    
-
-    
     @Published var commonFeatureData: [CommonFeature] = [] // Populate this array with the feature data
     @Published var featureWelcomeTitle: String = ""
     @Published var welcomeParagraph: String = ""
@@ -44,6 +41,13 @@ class FeatureListViewModel: ObservableObject {
         case "three main Forces":
             let servicesData = dataService.cachedIndiaData?.featuresDetails.services ?? []
             view = AnyView(GenericFeatureDetailView(featureData: servicesData))
+        case "Attractions":
+            let attractionsData = dataService.cachedIndiaData?.featuresDetails.attractions ?? []
+            view = AnyView(GenericFeatureDetailView(featureData: attractionsData))
+        case "awards":
+            let awardsData = dataService.cachedIndiaData?.featuresDetails.awards ?? []
+            view = AnyView(GenericFeatureDetailView(featureData: awardsData))
+            
         default:
             return AnyView(EmptyView()) // Default empty view
         }

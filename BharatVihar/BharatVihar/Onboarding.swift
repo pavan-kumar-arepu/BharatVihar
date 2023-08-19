@@ -13,7 +13,7 @@ struct OnboardingScreenView: View {
     @EnvironmentObject var userData: UserData
     @State private var animateLogo = false
     @State private var animateText = false
-    @State private var currentPage = 0
+    @State private var currentPage = 3
     @State private var isPresentingHome = false // Add this state
 
     
@@ -30,9 +30,9 @@ struct OnboardingScreenView: View {
     
     var body: some View {
         VStack {
-            LaunchLogo()
-                .offset(y: animateLogo ? (currentPage == 0 ? 200 : 50) : 200)
-                .animation(Animation.easeInOut(duration: 1).delay(0))
+           // LaunchLogo()
+//                .offset(y: animateLogo ? (currentPage == 0 ? 200 : 50) : 200)
+//                .animation(Animation.easeInOut(duration: 1).delay(0))
             
             TabView(selection: $currentPage) {
                 welcomeView()
