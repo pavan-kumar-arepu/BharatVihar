@@ -29,19 +29,19 @@ class FeatureListViewModel: ObservableObject {
     func destinationForTag(_ tag: String?) -> AnyView {
         var view = AnyView(EmptyView())
         switch tag {
-        case "History Timeline":
+        case "historyTimeline":
             let historyTimeLineData = dataService.cachedIndiaData?.featuresDetails.historyTimeline ?? []
             view = AnyView(GenericFeatureDetailView(featureData: historyTimeLineData))
-        case "Cultures":
+        case "culture":
             let cultureData = dataService.cachedIndiaData?.featuresDetails.culture ?? []
             view = AnyView(GenericFeatureDetailView(featureData: cultureData))
-        case "Festivals":
+        case "festivals":
             let festivalsData = dataService.cachedIndiaData?.featuresDetails.festivals ?? []
             view = AnyView(GenericFeatureDetailView(featureData: festivalsData))
-        case "three main Forces":
+        case "services":
             let servicesData = dataService.cachedIndiaData?.featuresDetails.services ?? []
             view = AnyView(GenericFeatureDetailView(featureData: servicesData))
-        case "Attractions":
+        case "attractions":
             let attractionsData = dataService.cachedIndiaData?.featuresDetails.attractions ?? []
             view = AnyView(GenericFeatureDetailView(featureData: attractionsData))
         case "awards":

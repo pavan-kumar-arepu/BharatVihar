@@ -37,39 +37,49 @@ struct FeatureDetailPage: View {
     let feature: CommonFeature // A single feature data
     
     var body: some View {
-        VStack {
-            if let imageUrl = feature.image {
-                // Load the image directly here
-                RemoteImage(url: imageUrl)
-                    .aspectRatio(contentMode: .fit)
-                    .frame(height: UIScreen.main.bounds.height * 0.3)
-                    .padding(.horizontal, 20)
-            } else {
-                Image("Heritage-Bg") // Placeholder image
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .frame(height: UIScreen.main.bounds.height * 0.3)
-                    .padding(.horizontal, 20)
-            }
-            
-            Text(feature.title)
-                .font(.title)
-                .fontWeight(.bold)
-                .padding(.top, 10)
-            
-            Text(feature.description)
-                .multilineTextAlignment(.center)
+        ZStack {
+            Image("side-menu-bg") // Placeholder image
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+//                .frame(height: UIScreen.main.bounds.height * 0.3)
                 .padding(.horizontal, 20)
-                .padding(.top, 10)
-            
-            if feature.streetView ?? false {
-                // Show street view related UI
-            } else {
-                // Show non-street view related UI
+            VStack {
+                if let imageUrl = feature.image {
+                    // Load the image directly here
+                    RemoteImage(url: imageUrl)
+                        .aspectRatio(contentMode: .fit)
+                    //                    .frame(height: UIScreen.main.bounds.height * 0.3)
+                        .frame(width: UIScreen.main.bounds.width - 40, height: UIScreen.main.bounds.width * 0.7) // Custom aspect ratio
+                        .clipped() // Clip the image to the specified frame
+                        .padding(.horizontal, 20)
+                    
+                } else {
+                    Image("Heritage-Bg") // Placeholder image
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(height: UIScreen.main.bounds.height * 0.3)
+                        .padding(.horizontal, 20)
+                }
+                
+                Text(feature.title)
+                    .font(.title)
+                    .fontWeight(.bold)
+                    .padding(.top, 10)
+                
+                Text(feature.description)
+                    .multilineTextAlignment(.center)
+                    .padding(.horizontal, 20)
+                    .padding(.top, 10)
+                
+                if feature.streetView ?? false {
+                    // Show street view related UI
+                } else {
+                    // Show non-street view related UI
+                }
+                
+                // You can add more custom UI based on your needs
             }
-            
-            // You can add more custom UI based on your needs
+            .padding()
         }
-        .padding()
     }
 }
