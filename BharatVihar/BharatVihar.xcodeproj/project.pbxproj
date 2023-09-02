@@ -73,6 +73,7 @@
 		0BBB87942A896103003644AB /* PhotographyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BBB87932A896103003644AB /* PhotographyView.swift */; };
 		0BBB87962A896140003644AB /* PhotographyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BBB87952A896140003644AB /* PhotographyViewModel.swift */; };
 		0BBB87982A8964F2003644AB /* PageControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BBB87972A8964F2003644AB /* PageControlView.swift */; };
+		0BD97D3D2AA376D000F17DD7 /* Transulate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BD97D3C2AA376D000F17DD7 /* Transulate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -139,6 +140,7 @@
 		0BBB87932A896103003644AB /* PhotographyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotographyView.swift; sourceTree = "<group>"; };
 		0BBB87952A896140003644AB /* PhotographyViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotographyViewModel.swift; sourceTree = "<group>"; };
 		0BBB87972A8964F2003644AB /* PageControlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageControlView.swift; sourceTree = "<group>"; };
+		0BD97D3C2AA376D000F17DD7 /* Transulate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Transulate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -216,6 +218,7 @@
 		0B8021EA2A7AC4CA006F0CEF /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				0BD97D3B2AA376D000F17DD7 /* Language */,
 				0BBB87922A8960F6003644AB /* Photography */,
 				0BBB878F2A895451003644AB /* GenericViewModel */,
 				0BBB87882A89529E003644AB /* Culture */,
@@ -425,6 +428,14 @@
 			path = Photography;
 			sourceTree = "<group>";
 		};
+		0BD97D3B2AA376D000F17DD7 /* Language */ = {
+			isa = PBXGroup;
+			children = (
+				0BD97D3C2AA376D000F17DD7 /* Transulate.swift */,
+			);
+			path = Language;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -560,6 +571,7 @@
 				0BA939102A7C313900B3F648 /* IndiaMap.swift in Sources */,
 				0BBB87842A8951AF003644AB /* GenericFeatureDetailView.swift in Sources */,
 				0B91F9E12A7EE0C5004CA0E9 /* Culture.swift in Sources */,
+				0BD97D3D2AA376D000F17DD7 /* Transulate.swift in Sources */,
 				0B78C4F42A880382000A036D /* Onboarding.swift in Sources */,
 				0B91FA3E2A82AF82004CA0E9 /* LeadersViewModel.swift in Sources */,
 				0B91F9BF2A7E3650004CA0E9 /* iPhoneLikeBorder.swift in Sources */,
