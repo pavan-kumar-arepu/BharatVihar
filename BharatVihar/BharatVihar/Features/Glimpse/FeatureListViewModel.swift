@@ -47,6 +47,8 @@ class FeatureListViewModel: ObservableObject {
         case "awards":
             let awardsData = dataService.cachedIndiaData?.featuresDetails.awards ?? []
             view = AnyView(GenericFeatureDetailView(featureData: awardsData))
+        case "languages":
+            view = AnyView(TransulateView())
             
         default:
             return AnyView(EmptyView()) // Default empty view

@@ -59,7 +59,9 @@ struct HomeView: View {
         .fullScreenCover(isPresented: $viewModel.isPresentingFeature) {
             let dataService = DataService.shared
             let viewModel = FeatureListViewModel(dataService: dataService)
-            FeatureView(isPresented: $viewModel.isPresentingFeature, viewModel: viewModel) // Pass the binding here
+//            FeatureView(isPresented: $viewModel.isPresentingFeature, viewModel: viewModel)
+            IndiaFeaturesView()
+            // Pass the binding here
         }
     }
 }

@@ -20,23 +20,22 @@ struct FeatureView: View {
 
     var body: some View {
         NavigationView {
-            ZStack {
-                iPhoneLikeBorder()
-                HBackground().background(.white)
+//            ZStack {
+               // iPhoneLikeBorder()
+               // HBackground().background(.white)
                 VStack {
-                    Spacer()
-                    Text(viewModel.featureWelcomeTitle)
-                        .font(.largeTitle)
-                        .fontWeight(.bold)
-                        .foregroundColor(.blue)
-                        .padding()
-                        .shadow(radius: 4)
-                    Spacer()
+//                    Spacer()
+//                    Text(viewModel.featureWelcomeTitle)
+//                        .font(.largeTitle)
+//                        .fontWeight(.bold)
+//                        .foregroundColor(.blue)
+//                        .padding()
+//                        .shadow(radius: 4)
+//                    Spacer()
                     FeatureParagraphView(viewModel: viewModel)
-                        .padding([.leading, .trailing])
-                    Spacer()
+                        .padding([.leading, .trailing, .top, .bottom])
                 }
-            }
+//            }
             .navigationBarTitle("Glimpse", displayMode: .inline)
             .navigationBarItems(trailing: Button("Dismiss") {
                 isPresented.toggle()

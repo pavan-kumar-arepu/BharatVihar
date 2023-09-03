@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0B171C282AA513560061550E /* IndiaFeatureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B171C272AA513560061550E /* IndiaFeatureView.swift */; };
 		0B63544A2A858AA100CF8DF6 /* IndiaDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B6354492A858AA100CF8DF6 /* IndiaDataModel.swift */; };
 		0B63544C2A8692E600CF8DF6 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B63544B2A8692E600CF8DF6 /* MainView.swift */; };
 		0B63544E2A8692EF00CF8DF6 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B63544D2A8692EF00CF8DF6 /* MainViewModel.swift */; };
@@ -77,6 +78,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0B171C272AA513560061550E /* IndiaFeatureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndiaFeatureView.swift; sourceTree = "<group>"; };
 		0B6354492A858AA100CF8DF6 /* IndiaDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndiaDataModel.swift; sourceTree = "<group>"; };
 		0B63544B2A8692E600CF8DF6 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		0B63544D2A8692EF00CF8DF6 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
@@ -256,6 +258,7 @@
 				0B8021E82A7AC48B006F0CEF /* FeaturesView.swift */,
 				0BBB87812A8946C9003644AB /* FeatureListViewModel.swift */,
 				0B8021F02A7AF2DA006F0CEF /* FeatureParagraphView.swift */,
+				0B171C272AA513560061550E /* IndiaFeatureView.swift */,
 			);
 			path = Glimpse;
 			sourceTree = "<group>";
@@ -571,6 +574,7 @@
 				0BA939102A7C313900B3F648 /* IndiaMap.swift in Sources */,
 				0BBB87842A8951AF003644AB /* GenericFeatureDetailView.swift in Sources */,
 				0B91F9E12A7EE0C5004CA0E9 /* Culture.swift in Sources */,
+				0B171C282AA513560061550E /* IndiaFeatureView.swift in Sources */,
 				0BD97D3D2AA376D000F17DD7 /* Transulate.swift in Sources */,
 				0B78C4F42A880382000A036D /* Onboarding.swift in Sources */,
 				0B91FA3E2A82AF82004CA0E9 /* LeadersViewModel.swift in Sources */,

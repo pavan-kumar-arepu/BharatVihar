@@ -20,7 +20,7 @@ struct FeatureParagraphView: View {
                                 onTappedWord: { word in
                                     self.tappedWord = word
                                 })
-                .frame(height: 300)
+                .frame(height: 700)
                 .background(
                     NavigationLink(
                         destination: viewModel.destinationForTag(tappedWord),
