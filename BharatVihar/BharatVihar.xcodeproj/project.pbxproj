@@ -15,6 +15,7 @@
 		0B78C4F42A880382000A036D /* Onboarding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B78C4F32A880382000A036D /* Onboarding.swift */; };
 		0B78C4F62A8805E5000A036D /* OpacityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B78C4F52A8805E5000A036D /* OpacityView.swift */; };
 		0B78C4F82A880AC6000A036D /* LaunchLogo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B78C4F72A880AC6000A036D /* LaunchLogo.swift */; };
+		0B7EAEE72AA9D6DF00DF77A0 /* TabBarContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B7EAEE62AA9D6DF00DF77A0 /* TabBarContainerView.swift */; };
 		0B8021D22A7ABAC2006F0CEF /* BharatViharApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8021D12A7ABAC2006F0CEF /* BharatViharApp.swift */; };
 		0B8021D42A7ABAC2006F0CEF /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8021D32A7ABAC2006F0CEF /* ContentView.swift */; };
 		0B8021D62A7ABAC8006F0CEF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0B8021D52A7ABAC8006F0CEF /* Assets.xcassets */; };
@@ -86,6 +87,7 @@
 		0B78C4F32A880382000A036D /* Onboarding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Onboarding.swift; sourceTree = "<group>"; };
 		0B78C4F52A8805E5000A036D /* OpacityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpacityView.swift; sourceTree = "<group>"; };
 		0B78C4F72A880AC6000A036D /* LaunchLogo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchLogo.swift; sourceTree = "<group>"; };
+		0B7EAEE62AA9D6DF00DF77A0 /* TabBarContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarContainerView.swift; sourceTree = "<group>"; };
 		0B8021CE2A7ABAC2006F0CEF /* BharatVihar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BharatVihar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0B8021D12A7ABAC2006F0CEF /* BharatViharApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BharatViharApp.swift; sourceTree = "<group>"; };
 		0B8021D32A7ABAC2006F0CEF /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -259,6 +261,7 @@
 				0BBB87812A8946C9003644AB /* FeatureListViewModel.swift */,
 				0B8021F02A7AF2DA006F0CEF /* FeatureParagraphView.swift */,
 				0B171C272AA513560061550E /* IndiaFeatureView.swift */,
+				0B7EAEE62AA9D6DF00DF77A0 /* TabBarContainerView.swift */,
 			);
 			path = Glimpse;
 			sourceTree = "<group>";
@@ -540,6 +543,7 @@
 				0B8021F32A7B0A1F006F0CEF /* HighlightedTextView.swift in Sources */,
 				0BBB87942A896103003644AB /* PhotographyView.swift in Sources */,
 				0BBB878A2A8952AA003644AB /* CultureView.swift in Sources */,
+				0B7EAEE72AA9D6DF00DF77A0 /* TabBarContainerView.swift in Sources */,
 				0B91FA122A82A75A004CA0E9 /* Constants.swift in Sources */,
 				0B8021E22A7ABB9F006F0CEF /* HomeView.swift in Sources */,
 				0B91FA182A82A7BB004CA0E9 /* LeaderDetail.swift in Sources */,

@@ -134,6 +134,7 @@ struct IndiaFeaturesView: View {
     }
 }
 
+
 struct CultureFeatureListView: View {
     var position: CGPoint // Receive the position from the parent view
 
@@ -156,9 +157,9 @@ struct GovernmentFeatureListView: View {
 
     var body: some View {
         List {
-            Text("Three main services")
-            Text("Prime Minister")
-            Text("Awards of India")
+            Text("Services")
+            Text("Minister")
+            Text("Awards")
         }
         .frame(width: 300, height: 200)
         .background(Color.white)
@@ -173,9 +174,9 @@ struct InformationFeatureListView: View {
 
     var body: some View {
         List {
-            Text("Timeline of India")
-            Text("Hot News of India")
-            Text("Ask Anything ")
+            Text("Timeline")
+            Text("HotNews")
+            Text("AskAnyThing")
         }
         .frame(width: 300, height: 200)
         .background(Color.white)
@@ -189,9 +190,9 @@ struct MoreFeatureListView: View {
     var position: CGPoint
     var body: some View {
         List {
-            Text("Women power")
-            Text("Magic numbers")
-            Text("Flag hoisting")
+            Text("WomenPower")
+            Text("MagicNumbers")
+            Text("FlagHoisting")
         }
         .frame(width: 300, height: 200)
         .background(Color.white)

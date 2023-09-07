@@ -60,12 +60,12 @@ struct HomeView: View {
             let dataService = DataService.shared
             let viewModel = FeatureListViewModel(dataService: dataService)
 //            FeatureView(isPresented: $viewModel.isPresentingFeature, viewModel: viewModel)
-            IndiaFeaturesView()
+//            IndiaFeaturesView()
+            TabBarContainerView()
             // Pass the binding here
         }
     }
 }
-
 
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
