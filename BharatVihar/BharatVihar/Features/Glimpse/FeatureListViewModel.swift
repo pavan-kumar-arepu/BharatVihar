@@ -32,7 +32,7 @@ class FeatureListViewModel: ObservableObject {
         case "historyTimeline":
             let historyTimeLineData = dataService.cachedIndiaData?.featuresDetails.historyTimeline ?? []
             view = AnyView(GenericFeatureDetailView(featureData: historyTimeLineData))
-        case "culture":
+        case "Culture":
             let cultureData = dataService.cachedIndiaData?.featuresDetails.culture ?? []
             view = AnyView(GenericFeatureDetailView(featureData: cultureData))
         case "festivals":

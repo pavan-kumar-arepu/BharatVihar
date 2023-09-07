@@ -15,6 +15,9 @@ struct FeatureCategory: Identifiable {
     let features: [String]
 }
 struct TabBarContainerView: View {
+    
+    @ObservedObject var viewModel: FeatureListViewModel
+
     @State private var selectedTabIndex = 0 // Track the selected tab index
     @State private var selectedFeature = "" // Track the selected feature name
     
@@ -27,32 +30,44 @@ struct TabBarContainerView: View {
     
     var body: some View {
         NavigationView {
-            VStack {
-                // 1st Part (Top): Tab view to display features horizontally
-                featureTabView
+            ZStack {
+                LinearGradient(
+                    gradient: Gradient(colors: [.green, .white, .green]),
+                    startPoint: .topLeading,
+                    endPoint: .bottomTrailing
+                )
+                .ignoresSafeArea(.all)
                 
-                // 2nd Part (Middle): Detailed view of the selected feature
-                FeatureDetailBaseView(features: categories[selectedTabIndex].features, selectedFeature: $selectedFeature)
-                    .frame(maxWidth: .infinity, maxHeight: .infinity)
-                
-                // 3rd Part (Bottom): Existing TabBar items
-                TabView(selection: $selectedTabIndex) {
-                    ForEach(0..<categories.count) { index in
-                        NavigationView {
-                            FeatureTopMenuView(category: categories[index], selectedFeature: $selectedFeature)
+                VStack {
+                    // 1st Part (Top): Tab view to display features horizontally
+                    featureTopMenuView
+                    
+                    // 2nd Part (Middle): Detailed view of the selected feature
+    //                FeatureDetailBaseView(features: categories[selectedTabIndex].features, selectedFeature: $selectedFeature)
+    //                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+                    
+                    FeatureDetailBaseView(viewModel: viewModel, selectedFeature: $selectedFeature)
+                    
+                    // 3rd Part (Bottom): Existing TabBar items
+                    TabView(selection: $selectedTabIndex) {
+                        ForEach(0..<categories.count) { index in
+                            NavigationView {
+    //                            FeatureTopMenuView(viewModel: viewModel, category: categories[index], selectedFeature: $selectedFeature)
+                            }
+                            .tabItem {
+                                Text(categories[index].name)
+                                Image(systemName: categories[index].logo)
+                            }
+                            .tag(index)
                         }
-                        .tabItem {
-                            Text(categories[index].name)
-                            Image(systemName: categories[index].logo)
-                        }
-                        .tag(index)
                     }
                 }
             }
         }
     }
     
-    var featureTabView: some View {
+    var featureTopMenuView: some View {
+        
         ScrollView(.horizontal, showsIndicators: false) {
             HStack {
                 ForEach(categories[selectedTabIndex].features, id: \.self) { feature in
@@ -75,35 +90,44 @@ struct TabBarContainerView: View {
 }
 
 struct FeatureTopMenuView: View {
+    @ObservedObject var viewModel: FeatureListViewModel
+    
     let category: FeatureCategory
     @Binding var selectedFeature: String
     
     var body: some View {
-        NavigationLink(destination: FeatureDetailBaseView(features: category.features, selectedFeature: $selectedFeature)) {
-            //Text("Show \(category.name) Features")
+//        NavigationLink(destination: FeatureDetailBaseView(features: category.features, selectedFeature: $selectedFeature)) {
+//            //Text("Show \(category.name) Features")
+//                //.font(.largeTitle)
+//        }
+        
+//        NavigationLink(destination: viewModel.destinationForTag(category.name)) {
+            Text("Show \(category.name) Features")
                 //.font(.largeTitle)
-        }
+//        }
+    
     }
 }
 
 struct FeatureDetailBaseView: View {
-    let features: [String]
+    @ObservedObject var viewModel: FeatureListViewModel
+
     @Binding var selectedFeature: String
     
     var body: some View {
+
         VStack {
-            // Display the feature name
-            Text("Detailed View of \(selectedFeature)")
-                .font(.title)
-                .padding()
-            
-            // Placeholder for feature details, replace with your content
-            Image("Aditya1") // Load the "Aditya1" image
-                .resizable()
-                .scaledToFit()
-                .frame(maxWidth: .infinity, maxHeight: .infinity)
-        }
-        .navigationBarTitle("Features")
+            let cultureData = viewModel.dataService.cachedIndiaData?.featuresDetails.culture ?? []
+            AnyView(GenericFeatureDetailView(featureData: cultureData))
+        }.navigationBarTitle("Features")
     }
 }
 
+
+struct TabBarContainerView_Preview: PreviewProvider {
+    static var previews: some View {
+        let dataService = DataService.shared
+        let viewModel = FeatureListViewModel(dataService: dataService)
+        TabBarContainerView(viewModel: viewModel)
+    }
+}

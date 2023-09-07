@@ -61,7 +61,7 @@ struct HomeView: View {
             let viewModel = FeatureListViewModel(dataService: dataService)
 //            FeatureView(isPresented: $viewModel.isPresentingFeature, viewModel: viewModel)
 //            IndiaFeaturesView()
-            TabBarContainerView()
+            TabBarContainerView(viewModel: viewModel)
             // Pass the binding here
         }
     }

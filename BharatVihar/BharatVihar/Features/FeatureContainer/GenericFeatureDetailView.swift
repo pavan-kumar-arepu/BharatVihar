@@ -8,6 +8,7 @@
 import Foundation
 import SwiftUI
 
+/*
 struct AnyViewFeatureDetailView: View {
     let featureData: [CommonFeature] // An array of feature data
     
@@ -29,9 +30,6 @@ struct GenericFeatureDetailView: View {
         .tabViewStyle(PageTabViewStyle())
     }
 }
-
-import SwiftUI
-
 
 struct FeatureDetailPage: View {
     let feature: CommonFeature // A single feature data
@@ -81,5 +79,83 @@ struct FeatureDetailPage: View {
             }
             .padding()
         }
+    }
+}
+
+*/
+
+struct GenericFeatureDetailView: View {
+    let featureData: [CommonFeature] // An array of feature data
+    
+    var body: some View {
+        VStack(spacing: 0) {
+            // 1st Section: Image View
+            ImageView() // You need to implement ImageView separately
+                .frame(height: UIScreen.main.bounds.height * 0.35)
+            
+            // 2nd Section: Collection View
+            GridView(featureData: featureData)
+                .frame(height: UIScreen.main.bounds.height * 0.1 * CGFloat(featureData.count / 2))
+            Spacer()
+        }
+    }
+}
+
+struct ImageView: View {
+    var body: some View {
+        // Implement your image view here
+        Rectangle()
+            .fill(Color.blue) // Example background color
+            .cornerRadius(20)
+            .padding()// Rounded rect shape
+    }
+}
+
+struct GridView: View {
+    let featureData: [CommonFeature]
+    
+    var body: some View {
+        ScrollView {
+            LazyVGrid(columns: [GridItem(.flexible(), spacing: 30), GridItem(.flexible(), spacing: 10)], spacing: 10) {
+                ForEach(featureData) { feature in
+                    GridCell(feature: feature)
+                }
+            }
+            .padding()
+        }
+    }
+}
+
+struct GridCell: View {
+    let feature: CommonFeature
+    
+    var body: some View {
+        ZStack {
+            RoundedRectangle(cornerRadius: 10)
+                .fill(LinearGradient(gradient: Gradient(colors: [Color.red, Color.orange]), startPoint: .top, endPoint: .bottom))
+                .frame(width: UIScreen.main.bounds.width * 0.4, height: UIScreen.main.bounds.height * 0.1)
+            
+            
+            if let title = feature.title {
+                Text(title)
+                    .font(.headline)
+            }
+            
+            if let subtitle = feature.subtitle {
+                Text(subtitle)
+                    .font(.subheadline)
+            }
+        }
+        .foregroundColor(.white)
+    }
+}
+
+
+struct GenericFeatureDetailView_Preview: PreviewProvider {
+    static var previews: some View {
+        let dataService = DataService.shared
+        let cultureData = dataService.cachedIndiaData?.featuresDetails.culture ?? []
+
+        GenericFeatureDetailView(featureData: cultureData)
     }
 }
