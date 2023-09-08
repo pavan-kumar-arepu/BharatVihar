@@ -56,6 +56,40 @@ class FeatureListViewModel: ObservableObject {
         return view
     }
     
+    /*
+     FeatureCategory(name: "Culture", logo: "globe.central.south.asia.fill", features: ["culture", "attractions", "languages", "festivals"]),
+     FeatureCategory(name: "Government", logo: "shield.fill", features: ["services", "leaders", "awards"]),
+     FeatureCategory(name: "Information", logo: "info.circle.fill", features: ["historyTimeline", "HotNews", "AskAnyThing"]),
+     FeatureCategory(name: "More", logo: "ellipsis.circle.fill", features: ["WomenPower", "numbers", "FlagHoisting"])
+     */
+    
+    // Function to determine the destination view based on the tappedWord
+    func fetchDataForFeature(selectedFeature: String) -> [CommonFeature] {
+        var featureData = dataService.cachedIndiaData?.featuresDetails.culture  ?? []
+        
+        switch selectedFeature {
+        case "historyTimeline":
+            featureData = dataService.cachedIndiaData?.featuresDetails.historyTimeline ?? []
+        case "culture":
+            featureData = dataService.cachedIndiaData?.featuresDetails.culture ?? []
+        case "festivals":
+            featureData = dataService.cachedIndiaData?.featuresDetails.festivals ?? []
+        case "services":
+            featureData = dataService.cachedIndiaData?.featuresDetails.services ?? []
+        case "attractions":
+            featureData = dataService.cachedIndiaData?.featuresDetails.attractions ?? []
+//        case "leaders":
+//            featureData = dataService.cachedIndiaData?.featuresDetails.leaders ?? []
+        case "awards":
+            featureData = dataService.cachedIndiaData?.featuresDetails.awards ?? []
+        case "languages", "HotNews","AskAnyThing","WomenPower","numbers","FlagHoisting","leaders":
+            featureData = dataService.cachedIndiaData?.featuresDetails.culture ?? []
+        default:
+            featureData = dataService.cachedIndiaData?.featuresDetails.culture ?? []
+        }
+        return featureData
+    }
+    
     private func initializeFeatureDestinations() {
         if let cultureData = dataService.cachedIndiaData?.featuresDetails.culture {
             commonFeatureData = cultureData

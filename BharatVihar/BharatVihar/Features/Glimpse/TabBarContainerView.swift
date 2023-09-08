@@ -22,10 +22,10 @@ struct TabBarContainerView: View {
     @State private var selectedFeature = "" // Track the selected feature name
     
     let categories: [FeatureCategory] = [
-        FeatureCategory(name: "Culture", logo: "globe.central.south.asia.fill", features: ["Culture", "Attractions", "Languages"]),
-        FeatureCategory(name: "Government", logo: "shield.fill", features: ["Services", "Minister", "Awards"]),
-        FeatureCategory(name: "Information", logo: "info.circle.fill", features: ["Timeline", "HotNews", "AskAnyThing"]),
-        FeatureCategory(name: "More", logo: "ellipsis.circle.fill", features: ["WomenPower", "MagicNumbers", "FlagHoisting"])
+        FeatureCategory(name: "Culture", logo: "globe.central.south.asia.fill", features: ["culture", "attractions", "languages", "festivals"]),
+        FeatureCategory(name: "Government", logo: "shield.fill", features: ["services", "leaders", "awards"]),
+        FeatureCategory(name: "Information", logo: "info.circle.fill", features: ["historyTimeline", "HotNews", "AskAnyThing"]),
+        FeatureCategory(name: "More", logo: "ellipsis.circle.fill", features: ["WomenPower", "numbers", "FlagHoisting"])
     ]
     
     var body: some View {
@@ -43,16 +43,12 @@ struct TabBarContainerView: View {
                     featureTopMenuView
                     
                     // 2nd Part (Middle): Detailed view of the selected feature
-    //                FeatureDetailBaseView(features: categories[selectedTabIndex].features, selectedFeature: $selectedFeature)
-    //                    .frame(maxWidth: .infinity, maxHeight: .infinity)
-                    
                     FeatureDetailBaseView(viewModel: viewModel, selectedFeature: $selectedFeature)
                     
                     // 3rd Part (Bottom): Existing TabBar items
                     TabView(selection: $selectedTabIndex) {
                         ForEach(0..<categories.count) { index in
                             NavigationView {
-    //                            FeatureTopMenuView(viewModel: viewModel, category: categories[index], selectedFeature: $selectedFeature)
                             }
                             .tabItem {
                                 Text(categories[index].name)
@@ -96,30 +92,30 @@ struct FeatureTopMenuView: View {
     @Binding var selectedFeature: String
     
     var body: some View {
-//        NavigationLink(destination: FeatureDetailBaseView(features: category.features, selectedFeature: $selectedFeature)) {
-//            //Text("Show \(category.name) Features")
-//                //.font(.largeTitle)
-//        }
-        
-//        NavigationLink(destination: viewModel.destinationForTag(category.name)) {
-            Text("Show \(category.name) Features")
-                //.font(.largeTitle)
-//        }
-    
+        Text("Show \(category.name) Features")
     }
 }
 
 struct FeatureDetailBaseView: View {
     @ObservedObject var viewModel: FeatureListViewModel
-
+    
     @Binding var selectedFeature: String
     
     var body: some View {
-
+        
         VStack {
-            let cultureData = viewModel.dataService.cachedIndiaData?.featuresDetails.culture ?? []
-            AnyView(GenericFeatureDetailView(featureData: cultureData))
-        }.navigationBarTitle("Features")
+//            let cultureData = viewModel.dataService.cachedIndiaData?.featuresDetails.culture ?? []
+            let selectedFeatureString = "\(selectedFeature)"
+            let selectedFeatureData = viewModel.fetchDataForFeature(selectedFeature: selectedFeatureString)
+            AnyView(GenericFeatureDetailView(featureData: selectedFeatureData))
+        }
+        .navigationBarTitle("Features")
+        .onAppear {
+            // Use onAppear to print the message when the view appears
+            print("SelectedFeature", selectedFeature)
+            // Capture cultureData in a separate variable and print it
+            let capturedCultureData = viewModel.dataService.cachedIndiaData?.featuresDetails.culture ?? []
+            print("cultureData:", capturedCultureData)        }
     }
 }
 
