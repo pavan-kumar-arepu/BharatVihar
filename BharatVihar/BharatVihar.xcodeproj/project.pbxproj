@@ -11,6 +11,7 @@
 		0B63544A2A858AA100CF8DF6 /* IndiaDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B6354492A858AA100CF8DF6 /* IndiaDataModel.swift */; };
 		0B63544C2A8692E600CF8DF6 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B63544B2A8692E600CF8DF6 /* MainView.swift */; };
 		0B63544E2A8692EF00CF8DF6 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B63544D2A8692EF00CF8DF6 /* MainViewModel.swift */; };
+		0B772A792AABCEA800FAA94D /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 0B772A782AABCEA800FAA94D /* README.md */; };
 		0B78C4F22A87F169000A036D /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B78C4F12A87F169000A036D /* ImageLoader.swift */; };
 		0B78C4F42A880382000A036D /* Onboarding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B78C4F32A880382000A036D /* Onboarding.swift */; };
 		0B78C4F62A8805E5000A036D /* OpacityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B78C4F52A8805E5000A036D /* OpacityView.swift */; };
@@ -83,6 +84,7 @@
 		0B6354492A858AA100CF8DF6 /* IndiaDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndiaDataModel.swift; sourceTree = "<group>"; };
 		0B63544B2A8692E600CF8DF6 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		0B63544D2A8692EF00CF8DF6 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
+		0B772A782AABCEA800FAA94D /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		0B78C4F12A87F169000A036D /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
 		0B78C4F32A880382000A036D /* Onboarding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Onboarding.swift; sourceTree = "<group>"; };
 		0B78C4F52A8805E5000A036D /* OpacityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpacityView.swift; sourceTree = "<group>"; };
@@ -165,6 +167,7 @@
 		0B8021C52A7ABAC2006F0CEF = {
 			isa = PBXGroup;
 			children = (
+				0B772A782AABCEA800FAA94D /* README.md */,
 				0B78C4F52A8805E5000A036D /* OpacityView.swift */,
 				0B8021E62A7AC45A006F0CEF /* SceneDelegate.swift */,
 				0B8021D02A7ABAC2006F0CEF /* BharatVihar */,
@@ -512,6 +515,7 @@
 			files = (
 				0B8021D92A7ABAC8006F0CEF /* Preview Assets.xcassets in Resources */,
 				0B8021D62A7ABAC8006F0CEF /* Assets.xcassets in Resources */,
+				0B772A792AABCEA800FAA94D /* README.md in Resources */,
 				0B91FA052A82A69D004CA0E9 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
