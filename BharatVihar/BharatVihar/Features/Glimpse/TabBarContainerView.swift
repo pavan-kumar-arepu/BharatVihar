@@ -14,6 +14,8 @@ struct FeatureCategory: Identifiable {
     let logo: String
     let features: [String]
 }
+
+
 struct TabBarContainerView: View {
     
     @ObservedObject var viewModel: FeatureListViewModel
@@ -27,28 +29,43 @@ struct TabBarContainerView: View {
         FeatureCategory(name: "Information", logo: "info.circle.fill", features: ["historyTimeline", "HotNews", "AskAnyThing"]),
         FeatureCategory(name: "More", logo: "ellipsis.circle.fill", features: ["WomenPower", "numbers", "FlagHoisting"])
     ]
+
+    // Define gradients for each category
+    let gradients: [Gradient] = [
+        Gradient(colors: [.green, .white, .green]),
+        Gradient(colors: [.blue, .white, .blue]), // Customize this gradient for Government
+        Gradient(colors: [.purple, .white, .purple]), // Customize this gradient for Information
+        Gradient(colors: [.orange, .white, .orange]) // Customize this gradient for More
+    ]
     
     var body: some View {
         NavigationView {
             ZStack {
-                LinearGradient(
-                    gradient: Gradient(colors: [.green, .white, .green]),
-                    startPoint: .topLeading,
-                    endPoint: .bottomTrailing
-                )
-                .ignoresSafeArea(.all)
+                GeometryReader { geometry in
+                    // Use the selectedTabIndex to set the gradient background
+                    LinearGradient(
+                        gradient: gradients[selectedTabIndex],
+                        startPoint: .topLeading,
+                        endPoint: .bottomTrailing
+                    )
+                    .frame(width: geometry.size.width, height: geometry.size.height) // Set the height dynamically
+                    .ignoresSafeArea(.all)
+                }
                 
                 VStack {
                     // 1st Part (Top): Tab view to display features horizontally
-                    featureTopMenuView
-                    
+                    FeatureTopMenuView(selectedFeature: $selectedFeature,
+                                       features: categories[selectedTabIndex].features)
                     // 2nd Part (Middle): Detailed view of the selected feature
                     FeatureDetailBaseView(viewModel: viewModel, selectedFeature: $selectedFeature)
                     
+                    Spacer()
+
                     // 3rd Part (Bottom): Existing TabBar items
                     TabView(selection: $selectedTabIndex) {
                         ForEach(0..<categories.count) { index in
                             NavigationView {
+                                // Content for each tab
                             }
                             .tabItem {
                                 Text(categories[index].name)
@@ -61,12 +78,17 @@ struct TabBarContainerView: View {
             }
         }
     }
-    
-    var featureTopMenuView: some View {
-        
+}
+
+
+struct FeatureTopMenuView: View {
+    @Binding var selectedFeature: String
+    let features: [String]
+
+    var body: some View {
         ScrollView(.horizontal, showsIndicators: false) {
             HStack {
-                ForEach(categories[selectedTabIndex].features, id: \.self) { feature in
+                ForEach(features, id: \.self) { feature in
                     Button(action: {
                         // Handle tapping of feature in the tab view
                         selectedFeature = feature
@@ -82,17 +104,6 @@ struct TabBarContainerView: View {
                 }
             }
         }
-    }
-}
-
-struct FeatureTopMenuView: View {
-    @ObservedObject var viewModel: FeatureListViewModel
-    
-    let category: FeatureCategory
-    @Binding var selectedFeature: String
-    
-    var body: some View {
-        Text("Show \(category.name) Features")
     }
 }
 
