@@ -19,17 +19,17 @@ struct FeatureCategory: Identifiable {
 struct TabBarContainerView: View {
     
     @ObservedObject var viewModel: FeatureListViewModel
-
+    
     @State private var selectedTabIndex = 0 // Track the selected tab index
     @State private var selectedFeature = "" // Track the selected feature name
     
     let categories: [FeatureCategory] = [
-        FeatureCategory(name: "Culture", logo: "globe.central.south.asia.fill", features: ["culture", "attractions", "languages", "festivals"]),
+        FeatureCategory(name: "Heritage", logo: "globe.central.south.asia.fill", features: ["culture", "attractions", "languages", "festivals"]),
         FeatureCategory(name: "Government", logo: "shield.fill", features: ["services", "leaders", "awards"]),
         FeatureCategory(name: "Information", logo: "info.circle.fill", features: ["historyTimeline", "HotNews", "AskAnyThing"]),
         FeatureCategory(name: "More", logo: "ellipsis.circle.fill", features: ["WomenPower", "numbers", "FlagHoisting"])
     ]
-
+    
     // Define gradients for each category
     let gradients: [Gradient] = [
         Gradient(colors: [.green, .white, .green]),
@@ -59,8 +59,8 @@ struct TabBarContainerView: View {
                     // 2nd Part (Middle): Detailed view of the selected feature
                     FeatureDetailBaseView(viewModel: viewModel, selectedFeature: $selectedFeature)
                     
-                    Spacer()
-
+                    //                    Spacer()
+                    
                     // 3rd Part (Bottom): Existing TabBar items
                     TabView(selection: $selectedTabIndex) {
                         ForEach(0..<categories.count) { index in
@@ -74,12 +74,21 @@ struct TabBarContainerView: View {
                             .tag(index)
                         }
                     }
+                    .background(Color.clear) // Make the TabView background clear
+                    .accentColor(.green) // Set the accent color to green for the tabBar
+                    .onChange(of: selectedTabIndex) { newIndex in
+                        // Set the default feature when a new tab is selected
+                        selectedFeature = categories[newIndex].features.first ?? ""
+                    }
                 }
             }
         }
+        .onAppear {
+            // Set the default feature when the view appears
+            selectedFeature = categories[selectedTabIndex].features.first ?? ""
+        }
     }
 }
-
 
 struct FeatureTopMenuView: View {
     @Binding var selectedFeature: String
@@ -94,16 +103,17 @@ struct FeatureTopMenuView: View {
                         selectedFeature = feature
                     }) {
                         Text(feature)
-                            .font(.headline)
+                            .font(.caption)
                             .padding(.horizontal, 20)
                             .padding(.vertical, 10)
-                            .background(selectedFeature == feature ? Color.blue : Color.gray)
+                            .background(selectedFeature == feature ? Color.green : Color.gray)
                             .foregroundColor(.white)
-                            .cornerRadius(8)
+                            .cornerRadius(12)
                     }
+                    .frame(height: 40) // Set a fixed height of 40 pixels
                 }
             }
-        }
+        }  .padding()
     }
 }
 
@@ -119,7 +129,7 @@ struct FeatureDetailBaseView: View {
             let selectedFeatureData = viewModel.fetchDataForFeature(selectedFeature: selectedFeatureString)
             AnyView(GenericFeatureDetailView(featureData: selectedFeatureData))
         }
-        .navigationBarTitle("Features")
+//        .navigationBarTitle("Features")
     }
 }
 

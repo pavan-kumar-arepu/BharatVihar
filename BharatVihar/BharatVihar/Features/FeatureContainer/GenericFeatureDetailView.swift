@@ -16,12 +16,15 @@ struct GenericFeatureDetailView: View {
             // 1st Section: Image View
             ImageView() // You need to implement ImageView separately
                 .frame(height: UIScreen.main.bounds.height * 0.25)
+                .opacity(0.35)
             
             Spacer()
             
             // 2nd Section: Collection View
             GridView(featureData: featureData)
-                .frame(height: UIScreen.main.bounds.height * 0.1 * CGFloat(featureData.count / 2))
+//                .frame(height: UIScreen.main.bounds.height * 0.2 * CGFloat(featureData.count / 2))
+            // TODO: This should not hardcoded
+                .frame(height: 375)
             Spacer()
         }
     }
@@ -71,6 +74,7 @@ struct GridCell: View {
                     .font(.subheadline)
             }
         }
+        .shadow(radius: 10.0)
         .foregroundColor(.white)
     }
 }
