@@ -104,18 +104,11 @@ struct FeatureDetailBaseView: View {
     var body: some View {
         
         VStack {
-//            let cultureData = viewModel.dataService.cachedIndiaData?.featuresDetails.culture ?? []
             let selectedFeatureString = "\(selectedFeature)"
             let selectedFeatureData = viewModel.fetchDataForFeature(selectedFeature: selectedFeatureString)
             AnyView(GenericFeatureDetailView(featureData: selectedFeatureData))
         }
         .navigationBarTitle("Features")
-        .onAppear {
-            // Use onAppear to print the message when the view appears
-            print("SelectedFeature", selectedFeature)
-            // Capture cultureData in a separate variable and print it
-            let capturedCultureData = viewModel.dataService.cachedIndiaData?.featuresDetails.culture ?? []
-            print("cultureData:", capturedCultureData)        }
     }
 }
 
