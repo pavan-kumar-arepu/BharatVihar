@@ -32,10 +32,10 @@ struct TabBarContainerView: View {
     
     // Define gradients for each category
     let gradients: [Gradient] = [
-        Gradient(colors: [.green, .white, .green]),
-        Gradient(colors: [.blue, .white, .blue]), // Customize this gradient for Government
-        Gradient(colors: [.purple, .white, .purple]), // Customize this gradient for Information
-        Gradient(colors: [.orange, .white, .orange]) // Customize this gradient for More
+        Gradient(colors: [.green, .white]),
+        Gradient(colors: [.blue, .white]), // Customize this gradient for Government
+        Gradient(colors: [.purple, .white]), // Customize this gradient for Information
+        Gradient(colors: [.orange, .white]) // Customize this gradient for More
     ]
     
     var body: some View {
@@ -45,17 +45,30 @@ struct TabBarContainerView: View {
                     // Use the selectedTabIndex to set the gradient background
                     LinearGradient(
                         gradient: gradients[selectedTabIndex],
-                        startPoint: .topLeading,
-                        endPoint: .bottomTrailing
+                        startPoint: .top,
+                        endPoint: .bottom
                     )
                     .frame(width: geometry.size.width, height: geometry.size.height) // Set the height dynamically
                     .ignoresSafeArea(.all)
                 }
                 
                 VStack {
+                    
+                    if #available(iOS 16.0, *) {
+                        Text(categories[selectedTabIndex].name)
+                            .font(.largeTitle) // Make the text a large title
+                        //                        .padding(.leading, 10)
+                            .frame(maxWidth: .infinity, alignment: .leading) // Left-align the entire view
+                            .padding(.leading, 10)
+                            .foregroundColor(.black)
+                            .bold()
+                    } else {
+                        // Fallback on earlier versions
+                    }
+                    
                     // 1st Part (Top): Tab view to display features horizontally
-                    FeatureTopMenuView(selectedFeature: $selectedFeature,
-                                       features: categories[selectedTabIndex].features)
+                    //FeatureTopMenuView(selectedFeature: $selectedFeature,
+                    //features: categories[selectedTabIndex].features)
                     // 2nd Part (Middle): Detailed view of the selected feature
                     FeatureDetailBaseView(viewModel: viewModel, selectedFeature: $selectedFeature)
                     
@@ -74,8 +87,8 @@ struct TabBarContainerView: View {
                             .tag(index)
                         }
                     }
-                    .background(Color.clear) // Make the TabView background clear
-                    .accentColor(.green) // Set the accent color to green for the tabBar
+                    .background(Color.white) // Set the background color of the TabView to white
+                    .accentColor(.blue) // Set the accent color to blue for the tabBar
                     .onChange(of: selectedTabIndex) { newIndex in
                         // Set the default feature when a new tab is selected
                         selectedFeature = categories[newIndex].features.first ?? ""
@@ -129,7 +142,7 @@ struct FeatureDetailBaseView: View {
             let selectedFeatureData = viewModel.fetchDataForFeature(selectedFeature: selectedFeatureString)
             AnyView(GenericFeatureDetailView(featureData: selectedFeatureData))
         }
-//        .navigationBarTitle("Features")
+//        .navigationBarTitle("")
     }
 }
 

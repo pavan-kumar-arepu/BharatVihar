@@ -19,6 +19,12 @@ class FeatureListViewModel: ObservableObject {
     
     let dataService: DataService
     
+    @Published var title: String = ""
+      
+      func setTitle(_ title: String) {
+          self.title = title
+      }
+    
     init(dataService: DataService) {
         self.dataService = dataService
         loadCachedData()

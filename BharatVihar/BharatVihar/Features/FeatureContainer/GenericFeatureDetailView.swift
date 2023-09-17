@@ -11,6 +11,7 @@ import SwiftUI
 struct GenericFeatureDetailView: View {
     let featureData: [CommonFeature] // An array of feature data
     
+
     var body: some View {
         VStack(spacing: 0) {
             // 1st Section: Image View
@@ -24,19 +25,39 @@ struct GenericFeatureDetailView: View {
             GridView(featureData: featureData)
 //                .frame(height: UIScreen.main.bounds.height * 0.2 * CGFloat(featureData.count / 2))
             // TODO: This should not hardcoded
-                .frame(height: 375)
+                .frame(height: 400)
             Spacer()
         }
     }
 }
 
+//struct ImageView: View {
+//    var body: some View {
+//        // Implement your image view here
+//        Rectangle()
+//            .fill(Color.blue) // Example background color
+//            .cornerRadius(20)
+//            .padding()// Rounded rect shape
+//    }
+//}
+
 struct ImageView: View {
+    let randomBorderColor = Color(.sRGB, red: .random(in: 0...1), green: .random(in: 0...1), blue: .random(in: 0...1))
+
     var body: some View {
-        // Implement your image view here
-        Rectangle()
-            .fill(Color.blue) // Example background color
-            .cornerRadius(20)
-            .padding()// Rounded rect shape
+        ZStack(alignment: .topLeading) {
+            // Background image with rounded corners
+            Image("marvelousIndia")
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+                .frame(width: UIScreen.main.bounds.width - 40, height: (UIScreen.main.bounds.width - 40) / 1.586)
+                .cornerRadius(20.0)
+               // .border(randomBorderColor, width:25) // Apply random border color
+                //.shadow(radius: 4.0)
+                .clipShape(Rectangle())
+            
+        }
+        .frame(width: UIScreen.main.bounds.width - 40, height: (UIScreen.main.bounds.width - 40) / 1.586)
     }
 }
 

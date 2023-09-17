@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0B165C842AB61EBD0051EE50 /* CustomTabBarPOC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B165C832AB61EBD0051EE50 /* CustomTabBarPOC.swift */; };
 		0B171C282AA513560061550E /* IndiaFeatureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B171C272AA513560061550E /* IndiaFeatureView.swift */; };
 		0B63544A2A858AA100CF8DF6 /* IndiaDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B6354492A858AA100CF8DF6 /* IndiaDataModel.swift */; };
 		0B63544C2A8692E600CF8DF6 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B63544B2A8692E600CF8DF6 /* MainView.swift */; };
@@ -80,6 +81,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0B165C832AB61EBD0051EE50 /* CustomTabBarPOC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBarPOC.swift; sourceTree = "<group>"; };
 		0B171C272AA513560061550E /* IndiaFeatureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndiaFeatureView.swift; sourceTree = "<group>"; };
 		0B6354492A858AA100CF8DF6 /* IndiaDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndiaDataModel.swift; sourceTree = "<group>"; };
 		0B63544B2A8692E600CF8DF6 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
@@ -167,6 +169,7 @@
 		0B8021C52A7ABAC2006F0CEF = {
 			isa = PBXGroup;
 			children = (
+				0B165C832AB61EBD0051EE50 /* CustomTabBarPOC.swift */,
 				0B772A782AABCEA800FAA94D /* README.md */,
 				0B78C4F52A8805E5000A036D /* OpacityView.swift */,
 				0B8021E62A7AC45A006F0CEF /* SceneDelegate.swift */,
@@ -543,6 +546,7 @@
 				0B91FA462A82B417004CA0E9 /* SplashView.swift in Sources */,
 				0BA939132A7C31C900B3F648 /* Maps.swift in Sources */,
 				0B8021E52A7AC0C7006F0CEF /* HomeBackground.swift in Sources */,
+				0B165C842AB61EBD0051EE50 /* CustomTabBarPOC.swift in Sources */,
 				0B91F9EE2A7EE2DE004CA0E9 /* Services.swift in Sources */,
 				0B8021F32A7B0A1F006F0CEF /* HighlightedTextView.swift in Sources */,
 				0BBB87942A896103003644AB /* PhotographyView.swift in Sources */,
