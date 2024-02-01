@@ -1,4 +1,10 @@
 # BharatVihar
+
+# Author
+AREPU PAVAN KUMAR
+LinkedIn: ArepuPavanKumar
+Email: iosdeveloper.ipa@gmail.com
+
 All about India
 
 Last Updated: September 10, 2023, 01:36  (CEST)
